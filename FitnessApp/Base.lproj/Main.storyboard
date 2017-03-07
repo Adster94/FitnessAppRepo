@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dxC-Bi-a8v">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Workout-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="WorkoutViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fUw-ag-Ea7">
+                                <rect key="frame" x="16" y="72" width="343" height="363.5"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Vc8-gj-mY5">
+                                        <rect key="frame" x="72" y="0.0" width="199" height="199"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Vc8-gj-mY5" secondAttribute="height" multiplier="1:1" id="ICv-Ll-2Eb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="pBM-ox-lm2" appends="YES" id="Lkc-sg-Bun"/>
+                                        </connections>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter workout name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEb-AF-UwZ">
+                                        <rect key="frame" x="0.0" y="209" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-gb-pg1" userLabel="Rating Control" customClass="RatingControl" customModule="FitnessApp" customModuleProvider="target">
+                                        <rect key="frame" x="51.5" y="249" width="240" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmD-Sl-aQq">
+                                        <rect key="frame" x="106.5" y="303" width="130" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjm-hb-qby">
+                                        <rect key="frame" x="123.5" y="333.5" width="96" height="30"/>
+                                        <state key="normal" title="Edit Exercises"/>
+                                        <connections>
+                                            <segue destination="aMK-cB-l6y" kind="presentation" identifier="ViewExercises" id="o9B-eq-Bup"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Vc8-gj-mY5" secondAttribute="trailing" constant="71.5" id="9g8-2I-t3M"/>
+                                    <constraint firstItem="Vc8-gj-mY5" firstAttribute="leading" secondItem="fUw-ag-Ea7" secondAttribute="leading" constant="71.5" id="M5W-BX-MdC"/>
+                                    <constraint firstAttribute="trailing" secondItem="wEb-AF-UwZ" secondAttribute="trailing" id="OPR-gP-2Ak"/>
+                                    <constraint firstItem="wEb-AF-UwZ" firstAttribute="leading" secondItem="fUw-ag-Ea7" secondAttribute="leading" id="PGP-Jg-ZoL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fUw-ag-Ea7" secondAttribute="trailing" id="Mpt-p8-4d1"/>
+                            <constraint firstItem="fUw-ag-Ea7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Tq8-qs-2z8"/>
+                            <constraint firstItem="fUw-ag-Ea7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oL8-5A-cnA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Workout" id="7Mh-ew-CX7">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="IA6-Mq-wHw">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="8Fz-Us-8B7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="tvB-B7-0iZ">
+                            <connections>
+                                <segue destination="biS-da-VVh" kind="unwind" unwindAction="unwindToWorkoutListWithSender:" id="fsr-fO-INO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exerciseButton" destination="xjm-hb-qby" id="fbv-g0-mfs"/>
+                        <outlet property="exerciseNumberLabel" destination="jmD-Sl-aQq" id="bac-6Y-9zG"/>
+                        <outlet property="inputNameField" destination="wEb-AF-UwZ" id="f6x-nK-Gxy"/>
+                        <outlet property="photoImageView" destination="Vc8-gj-mY5" id="6dc-0b-Nwi"/>
+                        <outlet property="ratingControl" destination="Wfq-gb-pg1" id="jMC-wH-XrL"/>
+                        <outlet property="saveButton" destination="tvB-B7-0iZ" id="7RC-kV-XaI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="biS-da-VVh" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="pBM-ox-lm2">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Unw-zs-xqB"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4822" y="-549"/>
+        </scene>
+        <!--Exercises-->
+        <scene sceneID="UnM-ky-93b">
+            <objects>
+                <tableViewController id="0CC-Up-MRq" customClass="ExerciseTableViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gq0-ME-b9o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseTableViewCell" id="1VG-5a-ZZB" customClass="ExerciseTableViewCell" customModule="FitnessApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1VG-5a-ZZB" id="Ind-sj-Mha">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWL-N0-ajr">
+                                            <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exerciseNameLabel" destination="cWL-N0-ajr" id="9ra-Vb-1KL"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0CC-Up-MRq" id="Zmh-f1-pN7"/>
+                            <outlet property="delegate" destination="0CC-Up-MRq" id="Orb-zd-NkB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Exercises" id="eZ9-MC-EF7">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="F2K-75-l8d">
+                            <connections>
+                                <action selector="cancelButton:" destination="0CC-Up-MRq" id="fFC-gt-Jiq"/>
+                                <segue destination="Iq5-5g-0wx" kind="unwind" unwindAction="unwindToExerciseListUpdateWithSender:" id="g8b-yg-0m6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TQF-EN-FcD">
+                            <connections>
+                                <segue destination="Qi7-HF-hs3" kind="presentation" id="T7u-B9-nQw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="F2K-75-l8d" id="m10-eS-jkb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BpY-lY-MSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Iq5-5g-0wx" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6817" y="-548"/>
+        </scene>
+        <!--Your Workouts-->
+        <scene sceneID="Eqq-If-Wwv">
+            <objects>
+                <tableViewController id="vcz-pw-wcX" customClass="WorkoutTableViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="auI-iJ-Rew">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WorkoutTableViewCell" rowHeight="90" id="2JU-nL-Dva" customClass="WorkoutTableViewCell" customModule="FitnessApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2JU-nL-Dva" id="xl4-6R-scL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="cTs-ey-120">
+                                            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp2-M7-t6Z">
+                                            <rect key="frame" x="97" y="8" width="270" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-5Q-KGD" userLabel="Exercise Count">
+                                            <rect key="frame" x="240" y="46" width="127" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4y2-ql-HKu" customClass="RatingControl" customModule="FitnessApp" customModuleProvider="target">
+                                            <rect key="frame" x="97" y="46" width="127" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                            </accessibility>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exerciseNumber" destination="DG0-5Q-KGD" id="vQd-kc-m3c"/>
+                                    <outlet property="nameLabel" destination="dp2-M7-t6Z" id="BQM-i6-h77"/>
+                                    <outlet property="photoImageView" destination="cTs-ey-120" id="yRm-d1-LNp"/>
+                                    <outlet property="ratingControl" destination="4y2-ql-HKu" id="sDT-lM-1LL"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="3Kz-Pw-wpW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vcz-pw-wcX" id="OQJ-Gr-9vd"/>
+                            <outlet property="delegate" destination="vcz-pw-wcX" id="PlQ-uJ-rpX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Workouts" id="LFe-Ce-tkE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VCm-dK-d82">
+                            <connections>
+                                <segue destination="Hql-YP-Rtj" kind="presentation" identifier="AddItem" id="pAe-Fp-WLa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlv-YB-yIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2770" y="-552"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8IG-Pq-iVo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hql-YP-Rtj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RPA-O5-Err">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f8U-gI-phs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2y-U5-VKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3865" y="-209"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CSP-l8-xzj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aMK-cB-l6y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LvX-lp-5cz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0CC-Up-MRq" kind="relationship" relationship="rootViewController" id="bLa-DO-9o6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egD-wc-bSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5841" y="-550"/>
+        </scene>
+        <!--New Exercise-->
+        <scene sceneID="mpp-sZ-CF1">
+            <objects>
+                <viewController id="6RU-HA-KCD" customClass="ExerciseViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2L7-1R-t9w"/>
+                        <viewControllerLayoutGuide type="bottom" id="XDD-3u-8cJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LXZ-iV-4hn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aq2-Tx-kmI">
+                                <rect key="frame" x="16" y="164" width="343" height="60.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyC-vw-Dd9">
+                                        <rect key="frame" x="115" y="0.0" width="113.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new exercise" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9YL-6T-Ed4">
+                                        <rect key="frame" x="20" y="30.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9YL-6T-Ed4" secondAttribute="trailing" constant="99" id="0cQ-KE-Vms"/>
+                                    <constraint firstAttribute="trailing" secondItem="9YL-6T-Ed4" secondAttribute="trailing" constant="20" id="qrQ-zC-SB5"/>
+                                    <constraint firstItem="9YL-6T-Ed4" firstAttribute="leading" secondItem="aq2-Tx-kmI" secondAttribute="leading" constant="20" id="u6U-hv-jDA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aq2-Tx-kmI" firstAttribute="top" secondItem="2L7-1R-t9w" secondAttribute="bottom" constant="100" id="AS1-6v-2KR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aq2-Tx-kmI" secondAttribute="trailing" id="Hbx-6j-jPi"/>
+                            <constraint firstItem="aq2-Tx-kmI" firstAttribute="leading" secondItem="LXZ-iV-4hn" secondAttribute="leadingMargin" id="lLo-ro-4bG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Exercise" id="IvO-l5-z0P">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Tp7-Lf-r5U">
+                            <connections>
+                                <action selector="cancelButton:" destination="6RU-HA-KCD" id="XJ5-mr-vch"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FAN-8R-dNH">
+                            <connections>
+                                <segue destination="7ty-xH-JrA" kind="unwind" unwindAction="unwindToExerciseListWithSender:" id="e16-6A-934"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exerciseNameLabel" destination="zyC-vw-Dd9" id="TWf-Qd-QkY"/>
+                        <outlet property="nameTextField" destination="9YL-6T-Ed4" id="E6u-ls-cbq"/>
+                        <outlet property="saveButton" destination="FAN-8R-dNH" id="stn-dW-bXo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z34-B0-L3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7ty-xH-JrA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="8796" y="-549"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="alv-YL-qG8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qi7-HF-hs3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qfK-91-KgC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6RU-HA-KCD" kind="relationship" relationship="rootViewController" id="LaG-Z3-TAG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnI-LZ-BEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7801" y="-549"/>
+        </scene>
+        <!--Achievements-->
+        <scene sceneID="x8K-t7-hXU">
+            <objects>
+                <tableViewController id="bLD-NT-YzJ" customClass="AchievementTableViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zcs-z2-T79">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AchievementCell" rowHeight="90" id="RUo-yv-Q9b" customClass="AchievementTableViewCell" customModule="FitnessApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RUo-yv-Q9b" id="dqi-95-qIR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Achievement Name:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZd-f4-7Sl">
+                                            <rect key="frame" x="8" y="8" width="212" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Progress: 0/1" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sls-fR-0et">
+                                            <rect key="frame" x="243" y="8" width="124" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6h-9i-w7K">
+                                            <rect key="frame" x="8" y="47" width="359" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="b6h-9i-w7K" id="cKp-JN-MgJ"/>
+                                    <outlet property="nameLabel" destination="PZd-f4-7Sl" id="Mj4-og-3nF"/>
+                                    <outlet property="progressLabel" destination="Sls-fR-0et" id="1Sh-eh-doj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bLD-NT-YzJ" id="2qX-v7-DSK"/>
+                            <outlet property="delegate" destination="bLD-NT-YzJ" id="WfT-3n-3Qx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Achievements" id="5Zw-m3-qas"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RW9-wx-flf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3242" y="574"/>
+        </scene>
+        <!--Active Workout-->
+        <scene sceneID="jZF-LZ-0ts">
+            <objects>
+                <viewController id="bfv-AU-yni" customClass="ActiveWorkoutViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O4G-3A-QZ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="l66-hU-C4v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RmO-9z-hKe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Workout Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOY-kJ-ifx">
+                                <rect key="frame" x="36" y="110" width="303" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fme-nX-1Fl">
+                                <rect key="frame" x="36" y="174" width="303" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d6F-ee-XHc">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="play" id="eBx-AL-4cO">
+                                        <connections>
+                                            <action selector="playButton:" destination="bfv-AU-yni" id="Qen-8C-lHQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="axr-II-YKU"/>
+                                    <barButtonItem systemItem="pause" id="GUU-GJ-WM8">
+                                        <connections>
+                                            <action selector="pauseButton:" destination="bfv-AU-yni" id="p6X-tF-c9J"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Exercise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBB-id-Jrf">
+                                <rect key="frame" x="36" y="241" width="303" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJy-F4-qYA" userLabel="Completed View">
+                                <rect key="frame" x="67" y="280" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Complete!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="087-5S-aiz">
+                                        <rect key="frame" x="8" y="21" width="224" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Well done, you have completed your workout" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8a-4e-7ar">
+                                        <rect key="frame" x="-51" y="54" width="343" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6D-Xg-Gdb">
+                                        <rect key="frame" x="105" y="83" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Exit"/>
+                                        <connections>
+                                            <action selector="exitButton:" destination="bfv-AU-yni" eventType="touchUpInside" id="Baw-XV-6Ee"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XOY-kJ-ifx" firstAttribute="leading" secondItem="RmO-9z-hKe" secondAttribute="leadingMargin" constant="20" id="SAx-TG-wbf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XOY-kJ-ifx" secondAttribute="trailing" constant="20" id="dh0-Cg-U8m"/>
+                            <constraint firstItem="XOY-kJ-ifx" firstAttribute="top" secondItem="O4G-3A-QZ6" secondAttribute="bottom" constant="46" id="fGr-gO-Wk9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Active Workout" id="e4t-iG-S0t">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dd7-6I-Ra7">
+                            <connections>
+                                <action selector="cancelButton:" destination="bfv-AU-yni" id="JCu-mW-Fmo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="tpZ-kS-ON8">
+                            <connections>
+                                <action selector="resetButton:" destination="bfv-AU-yni" id="H9g-0u-zNQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="completedView" destination="wJy-F4-qYA" id="rCE-NP-1mY"/>
+                        <outlet property="countingLabel" destination="fme-nX-1Fl" id="af5-uS-0wG"/>
+                        <outlet property="currentExercise" destination="WBB-id-Jrf" id="YuQ-hZ-Vj0"/>
+                        <outlet property="workoutName" destination="XOY-kJ-ifx" id="XGj-eP-6Bf"/>
+                        <segue destination="QrU-N8-u7I" kind="unwind" identifier="unwindToDeactiveWorkout" unwindAction="unwindToDeactivateWorkoutWithSender:" id="Hx0-zY-UFx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwz-n3-sUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QrU-N8-u7I" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1970" y="1790"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="T7o-0U-R9f">
+            <objects>
+                <viewController id="Wc2-Q4-KLx" customClass="HomeViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n3W-0t-hwy"/>
+                        <viewControllerLayoutGuide type="bottom" id="UbQ-Bo-UdT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uAr-Hc-Gn9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSb-eo-HDP">
+                                <rect key="frame" x="112" y="80" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Home Page">
+                                        <attributes>
+                                            <font key="NSFont" size="29" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPD-IQ-hRy">
+                                <rect key="frame" x="116" y="154" width="143" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Workout">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mN4-Te-JO3" kind="presentation" identifier="StartWorkout" id="LGR-7P-Auv"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-Cl-qef">
+                                <rect key="frame" x="36" y="287.5" width="303" height="60.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbG-Wt-ujq">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="SelectWorkout"/>
+                                        <state key="normal" title="Select Workout"/>
+                                        <connections>
+                                            <segue destination="Yxa-2a-cLF" kind="presentation" identifier="SelectWorkout" id="3Um-7Y-cwF"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-u5-vME">
+                                        <rect key="frame" x="0.0" y="40" width="303" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aek-ia-mKw">
+                                <rect key="frame" x="116" y="414" width="143" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Remove"/>
+                                <connections>
+                                    <action selector="testRemoveCoins:" destination="Wc2-Q4-KLx" eventType="touchUpInside" id="cge-RU-ll1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ho-K9-1aa">
+                                <rect key="frame" x="116" y="469" width="143" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="testAddCoins:" destination="Wc2-Q4-KLx" eventType="touchUpInside" id="Ykb-ck-kBl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coins:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmf-re-TS0">
+                                <rect key="frame" x="36" y="529" width="303" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bhL-Cl-qef" secondAttribute="trailing" constant="20" id="8Uv-n6-qe0"/>
+                            <constraint firstItem="UbQ-Bo-UdT" firstAttribute="top" secondItem="bhL-Cl-qef" secondAttribute="bottom" constant="270" id="FsY-h7-Gmb"/>
+                            <constraint firstItem="bhL-Cl-qef" firstAttribute="leading" secondItem="uAr-Hc-Gn9" secondAttribute="leadingMargin" constant="20" id="eLy-FU-dfP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" selectedImage="Home" id="SgZ-rI-YwJ"/>
+                    <connections>
+                        <outlet property="selectedWorkoutLabel" destination="SxT-u5-vME" id="2xF-Aa-gHz"/>
+                        <outlet property="startButton" destination="rPD-IQ-hRy" id="rFY-E6-c14"/>
+                        <outlet property="testCoinsLabel" destination="zmf-re-TS0" id="y84-Gd-fM2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngb-Ia-4ms" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1970" y="924"/>
+        </scene>
+        <!--Select Workout-->
+        <scene sceneID="6R6-ww-nKw">
+            <objects>
+                <tableViewController id="0Xt-vZ-4wG" customClass="WorkoutSelectionTableViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="1WK-88-uiE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WorkoutTableViewCell" rowHeight="90" id="8Em-Ac-acr" customClass="WorkoutTableViewCell" customModule="FitnessApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Em-Ac-acr" id="5dU-VX-AoN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="eN4-aZ-Ycm">
+                                            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dr-O5-I0Z">
+                                            <rect key="frame" x="97" y="8" width="270" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jb-9D-zC8" userLabel="Exercise Count">
+                                            <rect key="frame" x="240" y="46" width="127" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJq-vQ-yWI" customClass="RatingControl" customModule="FitnessApp" customModuleProvider="target">
+                                            <rect key="frame" x="97" y="46" width="127" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                                            </accessibility>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exerciseNumber" destination="1jb-9D-zC8" id="bGm-zL-oWp"/>
+                                    <outlet property="nameLabel" destination="2dr-O5-I0Z" id="tJ7-S9-ZeP"/>
+                                    <outlet property="photoImageView" destination="eN4-aZ-Ycm" id="bjh-Am-2VG"/>
+                                    <outlet property="ratingControl" destination="LJq-vQ-yWI" id="Sqp-jc-cB9"/>
+                                    <segue destination="ghw-Cw-f3K" kind="unwind" unwindAction="unwindToWorkoutSelectedWithSender:" id="Yyk-jF-KX6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Xt-vZ-4wG" id="k7B-ll-CDW"/>
+                            <outlet property="delegate" destination="0Xt-vZ-4wG" id="AFj-Dv-463"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Workout" id="YZu-PM-Zau">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UeT-ek-cYY">
+                            <connections>
+                                <action selector="cancel:" destination="0Xt-vZ-4wG" id="vva-vh-YdZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WBH-xv-lHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ghw-Cw-f3K" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-116" y="1790"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="P8o-YN-sjl">
+            <objects>
+                <tabBarController id="dxC-Bi-a8v" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="T3L-7O-4Y5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Wc2-Q4-KLx" kind="relationship" relationship="viewControllers" id="Ce0-he-qOi"/>
+                        <segue destination="CY7-DF-Wd6" kind="relationship" relationship="viewControllers" id="lX8-5N-9qX"/>
+                        <segue destination="c4m-lx-Pc5" kind="relationship" relationship="viewControllers" id="EaO-W5-Wdy"/>
+                        <segue destination="EHR-Nr-oqI" kind="relationship" relationship="viewControllers" id="3qA-TI-Wcq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9s-J3-SPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303" y="134"/>
+        </scene>
+        <!--Workouts-->
+        <scene sceneID="4mE-M3-07M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c4m-lx-Pc5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Workouts" image="Workouts" id="uPp-hu-zQo"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="wui-xa-agk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B61-pV-2g4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vcz-pw-wcX" kind="relationship" relationship="rootViewController" id="P9a-Qh-gmn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnK-Oa-vBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="-552"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="of2-CL-k24">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yxa-2a-cLF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4rC-RB-1yG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Xt-vZ-4wG" kind="relationship" relationship="rootViewController" id="dnp-2b-Q0w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3m-gK-6Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1055" y="1790"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hnz-Ih-Ogq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mN4-Te-JO3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9od-mq-Wcl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bfv-AU-yni" kind="relationship" relationship="rootViewController" id="qIZ-B5-Hij"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jTk-5V-HFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2910" y="1790"/>
+        </scene>
+        <!--Achievements-->
+        <scene sceneID="SHV-jY-uhw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CY7-DF-Wd6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Achievements" image="Achievements" id="0Kd-Pe-U9u"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TzA-Kf-UPn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bLD-NT-YzJ" kind="relationship" relationship="rootViewController" id="EOk-Ot-Jsa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfx-Sq-BGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295" y="574"/>
+        </scene>
+        <!--Base-->
+        <scene sceneID="cgu-57-eFF">
+            <objects>
+                <viewController id="YdA-XG-GLk" customClass="BaseViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q0r-zZ-FNc"/>
+                        <viewControllerLayoutGuide type="bottom" id="llN-AX-1Kv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TNl-AN-WaJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p1-pr-Wbx">
+                                <rect key="frame" x="56" y="580" width="262" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KUF-xJ-cXo" userLabel="Base">
+                                <rect key="frame" x="12" y="83" width="350" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="CAO-qy-20K" userLabel="Top-Middle">
+                                        <rect key="frame" x="125" y="8" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="OTH-MJ-nba" userLabel="Mid-Middle">
+                                        <rect key="frame" x="125" y="137" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="pFp-PG-lyu" userLabel="Bottom-Middle">
+                                        <rect key="frame" x="125" y="267" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="WK0-NM-D8d" userLabel="Mid-Right">
+                                        <rect key="frame" x="242" y="137" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="Kmx-eb-itI" userLabel="Bottom-Right">
+                                        <rect key="frame" x="242" y="267" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="Xlu-ZO-Cfx" userLabel="Mid-Left">
+                                        <rect key="frame" x="8" y="137" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="zSC-Ba-8mV" userLabel="Bottom-Left">
+                                        <rect key="frame" x="8" y="267" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-Bz-GeF" userLabel="Top-Left">
+                                        <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty" translatesAutoresizingMaskIntoConstraints="NO" id="thG-bD-JkW" userLabel="Top-Right">
+                                        <rect key="frame" x="242" y="8" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="he4-1R-gXT">
+                                <rect key="frame" x="137" y="472" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yXP-fi-wUT" appends="YES" id="Xd9-5f-ogw"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Base" id="70n-AP-Xkl">
+                        <barButtonItem key="rightBarButtonItem" title="Store" id="kck-Rf-8k4">
+                            <connections>
+                                <segue destination="nYS-58-buE" kind="presentation" id="kBU-Sd-j8T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="botLeft" destination="zSC-Ba-8mV" id="6iE-Wj-Iid"/>
+                        <outlet property="botMiddle" destination="pFp-PG-lyu" id="ZXA-Kw-ETs"/>
+                        <outlet property="botRight" destination="Kmx-eb-itI" id="QVo-BM-zxU"/>
+                        <outlet property="midLeft" destination="Xlu-ZO-Cfx" id="aOf-pp-Bib"/>
+                        <outlet property="midMiddle" destination="OTH-MJ-nba" id="KwM-bW-cAQ"/>
+                        <outlet property="midRight" destination="WK0-NM-D8d" id="UF7-HX-Jqe"/>
+                        <outlet property="selectedObjectView" destination="he4-1R-gXT" id="GHZ-Iu-TKc"/>
+                        <outlet property="testLabel" destination="6p1-pr-Wbx" id="FGg-4d-etT"/>
+                        <outlet property="topLeft" destination="UwK-Bz-GeF" id="9mM-Ui-FJG"/>
+                        <outlet property="topMiddle" destination="CAO-qy-20K" id="VdA-62-FN8"/>
+                        <outlet property="topRight" destination="thG-bD-JkW" id="lGt-Pf-O1N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRq-aC-ZOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="yXP-fi-wUT">
+                    <connections>
+                        <action selector="dragSelectedImage:" destination="YdA-XG-GLk" id="aKl-9n-Bd7"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3232.8000000000002" y="1507.1964017991006"/>
+        </scene>
+        <!--Store-->
+        <scene sceneID="9m0-1c-7vA">
+            <objects>
+                <collectionViewController id="w1X-eo-HvD" customClass="StoreCollectionViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aTQ-ki-Mo1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ULu-kA-RuA">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StoreCell" id="AVu-ql-ax9" customClass="StoreCollectionViewCell" customModule="FitnessApp" customModuleProvider="target">
+                                <rect key="frame" x="25" y="50" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aui-EB-2Ow">
+                                            <rect key="frame" x="25" y="8" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-zK-AKw">
+                                            <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="costLabel" destination="oFb-zK-AKw" id="lua-Cn-Iov"/>
+                                    <outlet property="objectImage" destination="Aui-EB-2Ow" id="m0W-p3-IVV"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CreditsBar" id="fxW-5y-YLd" customClass="StoreCreditsCollectionReusableView" customModule="FitnessApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credits: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhJ-oW-9I6">
+                                    <rect key="frame" x="25" y="15" width="150" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <connections>
+                                <outlet property="creditsLabel" destination="XhJ-oW-9I6" id="Nex-K6-n3I"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="w1X-eo-HvD" id="usb-fi-Ayg"/>
+                            <outlet property="delegate" destination="w1X-eo-HvD" id="BGI-qI-3fg"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Store" id="Qk2-TS-cJx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GIa-LO-r6V">
+                            <connections>
+                                <action selector="cancel:" destination="w1X-eo-HvD" id="aQB-ne-fLZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="lvn-QE-9dw" kind="unwind" identifier="unwindToPlaceObject" unwindAction="unwindToPlaceObjectWithSender:" id="yAF-Ud-7Z6"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K8N-S5-825" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lvn-QE-9dw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5272.8000000000002" y="1507.1964017991006"/>
+        </scene>
+        <!--Development-->
+        <scene sceneID="ebl-pW-kno">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHR-Nr-oqI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Development" image="Development" id="wQa-8D-I9h"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R8l-d3-lTf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YdA-XG-GLk" kind="relationship" relationship="rootViewController" id="2Pd-mP-Dxa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r88-kt-j7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2293.5999999999999" y="1507.1964017991006"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WIW-q1-HPb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nYS-58-buE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aK2-xu-tet">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w1X-eo-HvD" kind="relationship" relationship="rootViewController" id="TxR-HM-npd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="41K-95-Puh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4333.6000000000004" y="1507.1964017991006"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Achievements" width="30" height="30"/>
+        <image name="DefaultImage" width="320" height="320"/>
+        <image name="Development" width="30" height="30"/>
+        <image name="Empty" width="50" height="50"/>
+        <image name="Home" width="30" height="30"/>
+        <image name="Workouts" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3Kz-Pw-wpW"/>
+    </inferredMetricsTieBreakers>
+</document>
