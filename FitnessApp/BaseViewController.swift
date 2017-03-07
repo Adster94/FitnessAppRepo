@@ -12,6 +12,7 @@ class BaseViewController: UIViewController
 {
     var placedStructures = [BaseGridObject]()
     var selectedObject: StoreObject!
+    var resetPosition: CGPoint!
     
     @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var selectedObjectView: UIImageView!
@@ -32,6 +33,8 @@ class BaseViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        resetPosition = selectedObjectView.frame.origin
         
         loadEmptyPlots()
     }
@@ -60,13 +63,22 @@ class BaseViewController: UIViewController
     
     func placeStructure()
     {
-        placeLoop: for BaseGridObject in placedStructures
+        if (selectedObjectView.image != UIImage(named: "Empty"))
         {
-            if (selectedObjectView.frame.intersects(BaseGridObject.attachedPosition.frame))
+            placeLoop: for BaseGridObject in placedStructures
             {
-                BaseGridObject.attachedPosition.image = selectedObjectView.image
-                break placeLoop
+                if (selectedObjectView.frame.intersects(BaseGridObject.attachedPosition.frame))
+                {
+                    BaseGridObject.attachedPosition.image = selectedObjectView.image
+                    selectedObjectView.frame.origin = resetPosition
+                    selectedObjectView.image = UIImage(named: "Empty")
+                    break placeLoop
+                }
             }
+        }
+        else
+        {
+            selectedObjectView.frame.origin = resetPosition
         }
     }
     

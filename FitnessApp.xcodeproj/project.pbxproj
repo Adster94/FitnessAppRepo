@@ -250,12 +250,13 @@
 				TargetAttributes = {
 					66B858031DC3772600C61429 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = PPHQA4Q543;
 						ProvisioningStyle = Automatic;
 					};
 					66B858171DC3772600C61429 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = PPHQA4Q543;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 66B858031DC3772600C61429;
 					};
 				};
@@ -472,6 +473,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PPHQA4Q543;
 				INFOPLIST_FILE = "$(SRCROOT)/FitnessApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AdamMoorey.TestApp2;
@@ -484,6 +487,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PPHQA4Q543;
 				INFOPLIST_FILE = "$(SRCROOT)/FitnessApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AdamMoorey.TestApp2;
@@ -497,6 +502,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PPHQA4Q543;
 				INFOPLIST_FILE = FitnessApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
