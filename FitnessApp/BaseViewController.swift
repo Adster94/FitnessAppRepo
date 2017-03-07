@@ -12,6 +12,7 @@ import os.log
 class BaseViewController: UIViewController
 {
     var placedStructures = [BaseGridObject]()
+    var imageViews = [UIImageView]()
     var selectedObject: StoreObject!
     var resetPosition: CGPoint!
     
@@ -37,14 +38,24 @@ class BaseViewController: UIViewController
         
         resetPosition = selectedObjectView.frame.origin
         
+        imageViews += [topMiddle, topLeft, topRight, midMiddle, midLeft, midRight, botMiddle, botLeft, botRight]
+        
+        //loadEmptyPlots()
+        //saveStructures()
+        
         if let savedStructures = loadStructures()
         {
+            placedStructures += savedStructures
+            
             for BaseGridObject in savedStructures
             {
-                BaseGridObject.attachedPosition.image = BaseGridObject.baseImage
+                findView(name: BaseGridObject.positionName).image = BaseGridObject.baseImage
+                
+                if (BaseGridObject.baseImage != UIImage(named: "Empty"))
+                {
+                    print(BaseGridObject.positionName + " image is not empty")
+                }
             }
-            
-            placedStructures += savedStructures
             
             print("Loaded structures")
         }
@@ -63,17 +74,17 @@ class BaseViewController: UIViewController
     
     func loadEmptyPlots()
     {
-        let topMiddle = BaseGridObject(attachedPosition: self.topMiddle, baseImage: UIImage(named: "Empty"))!
-        let topLeft = BaseGridObject(attachedPosition: self.topLeft, baseImage: UIImage(named: "Empty"))!
-        let topRight = BaseGridObject(attachedPosition: self.topRight, baseImage: UIImage(named: "Empty"))!
+        let topMiddle = BaseGridObject(positionName: "topMiddle", baseImage: UIImage(named: "Empty"))!
+        let topLeft = BaseGridObject(positionName: "topLeft", baseImage: UIImage(named: "Empty"))!
+        let topRight = BaseGridObject(positionName: "topRight", baseImage: UIImage(named: "Empty"))!
         
-        let midMiddle = BaseGridObject(attachedPosition: self.midMiddle, baseImage: UIImage(named: "Empty"))!
-        let midLeft = BaseGridObject(attachedPosition: self.midLeft, baseImage: UIImage(named: "Empty"))!
-        let midRight = BaseGridObject(attachedPosition: self.midRight, baseImage: UIImage(named: "Empty"))!
+        let midMiddle = BaseGridObject(positionName: "midMiddle", baseImage: UIImage(named: "Empty"))!
+        let midLeft = BaseGridObject(positionName: "midLeft", baseImage: UIImage(named: "Empty"))!
+        let midRight = BaseGridObject(positionName: "midRight", baseImage: UIImage(named: "Empty"))!
         
-        let botMiddle = BaseGridObject(attachedPosition: self.botMiddle, baseImage: UIImage(named: "Empty"))!
-        let botLeft = BaseGridObject(attachedPosition: self.botLeft, baseImage: UIImage(named: "Empty"))!
-        let botRight = BaseGridObject(attachedPosition: self.botRight, baseImage: UIImage(named: "Empty"))!
+        let botMiddle = BaseGridObject(positionName: "botMiddle", baseImage: UIImage(named: "Empty"))!
+        let botLeft = BaseGridObject(positionName: "botLeft", baseImage: UIImage(named: "Empty"))!
+        let botRight = BaseGridObject(positionName: "botRight", baseImage: UIImage(named: "Empty"))!
         
         placedStructures += [topMiddle, topLeft, topRight, midMiddle, midLeft, midRight, botMiddle, botLeft, botRight]
     }
@@ -84,15 +95,21 @@ class BaseViewController: UIViewController
         {
             placeLoop: for BaseGridObject in placedStructures
             {
-                if (selectedObjectView.frame.intersects(BaseGridObject.attachedPosition.frame))
+                let tempObject = findView(name: BaseGridObject.positionName)
+                
+                print("tempObject name: " + tempObject.accessibilityIdentifier!)
+                
+                if (selectedObjectView.frame.intersects(tempObject.frame))
                 {
-                    BaseGridObject.attachedPosition.image = selectedObjectView.image
+                    tempObject.image = selectedObjectView.image
                     BaseGridObject.baseImage = selectedObjectView.image
                     
+                    saveStructures()
                     print("Placed structure")
                     
                     selectedObjectView.frame.origin = resetPosition
                     selectedObjectView.image = UIImage(named: "Empty")
+                    testLabel.text = "No object selected..."
                     break placeLoop
                 }
             }
@@ -101,8 +118,21 @@ class BaseViewController: UIViewController
         {
             selectedObjectView.frame.origin = resetPosition
         }
+    }
+    
+    func findView(name: String) -> UIImageView
+    {
+        var imageView: UIImageView?
         
-        saveStructures()
+        for UIImageView in imageViews
+        {
+            if UIImageView.accessibilityIdentifier == name
+            {
+                imageView = UIImageView
+            }
+        }
+        
+        return imageView!
     }
     
     @IBAction func unwindToPlaceObject(sender: UIStoryboardSegue)

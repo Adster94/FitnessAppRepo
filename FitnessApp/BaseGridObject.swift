@@ -10,7 +10,8 @@ import UIKit
 
 class BaseGridObject: NSObject, NSCoding
 {
-    var attachedPosition: UIImageView!
+    //var attachedPosition: UIImageView!
+    var positionName: String
     var baseImage: UIImage?
     
     //MARK: Archiving Paths
@@ -20,13 +21,14 @@ class BaseGridObject: NSObject, NSCoding
     // MARK: Types
     struct PropertyKey
     {
-        static let attachedPosition = "attachedPosition"
+        static let positionName = "positionName"
         static let baseImage = "baseImage"
     }
     
-    init?(attachedPosition: UIImageView!, baseImage: UIImage?)
+    init?(positionName: String, baseImage: UIImage?) //attachedPosition: UIImageView!
     {
-        self.attachedPosition = attachedPosition
+        //self.attachedPosition = attachedPosition
+        self.positionName = positionName
         
         if (baseImage == nil)
         {
@@ -35,23 +37,23 @@ class BaseGridObject: NSObject, NSCoding
         else
         {
             self.baseImage = baseImage
-            self.attachedPosition.image = baseImage
+            //self.attachedPosition.image = baseImage
         }
     }
     
     required convenience init?(coder aDecoder: NSCoder)
     {
-        let attachedPosition = aDecoder.decodeObject(forKey: PropertyKey.attachedPosition) as! UIImageView
+        let positionName = aDecoder.decodeObject(forKey: PropertyKey.positionName) as! String
         let baseImage = aDecoder.decodeObject(forKey: PropertyKey.baseImage) as! UIImage
         
         //must call designated initializer
-        self.init(attachedPosition: attachedPosition, baseImage: baseImage)
+        self.init(positionName: positionName, baseImage: baseImage)
     }
     
     // MARK: NSCoding
     public func encode(with aCoder: NSCoder)
     {
-        aCoder.encode(attachedPosition, forKey: PropertyKey.attachedPosition)
+        aCoder.encode(positionName, forKey: PropertyKey.positionName)
         aCoder.encode(baseImage, forKey: PropertyKey.baseImage)
     }
 }
