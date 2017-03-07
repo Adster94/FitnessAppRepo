@@ -11,7 +11,6 @@ import os.log
 
 class WorkoutTableViewController: UITableViewController
 {
-
     // MARK: Properties
     var workouts = [Workout]()
     

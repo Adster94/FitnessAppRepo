@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class BaseViewController: UIViewController
 {
@@ -36,7 +37,23 @@ class BaseViewController: UIViewController
         
         resetPosition = selectedObjectView.frame.origin
         
-        loadEmptyPlots()
+        if let savedStructures = loadStructures()
+        {
+            for BaseGridObject in savedStructures
+            {
+                BaseGridObject.attachedPosition.image = BaseGridObject.baseImage
+            }
+            
+            placedStructures += savedStructures
+            
+            print("Loaded structures")
+        }
+        else
+        {
+            loadEmptyPlots()
+            
+            print("Loaded empty plots")
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -70,6 +87,10 @@ class BaseViewController: UIViewController
                 if (selectedObjectView.frame.intersects(BaseGridObject.attachedPosition.frame))
                 {
                     BaseGridObject.attachedPosition.image = selectedObjectView.image
+                    BaseGridObject.baseImage = selectedObjectView.image
+                    
+                    print("Placed structure")
+                    
                     selectedObjectView.frame.origin = resetPosition
                     selectedObjectView.image = UIImage(named: "Empty")
                     break placeLoop
@@ -80,6 +101,8 @@ class BaseViewController: UIViewController
         {
             selectedObjectView.frame.origin = resetPosition
         }
+        
+        saveStructures()
     }
     
     @IBAction func unwindToPlaceObject(sender: UIStoryboardSegue)
@@ -108,14 +131,27 @@ class BaseViewController: UIViewController
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: Private Methods
+    private func saveStructures()
+    {
+        //bool that changes based on if the archive worked
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(placedStructures, toFile: BaseGridObject.ArchiveURL.path)
+        
+        //logs the appropriate response
+        if isSuccessfulSave
+        {
+            os_log("Structures successfully saved.", log: OSLog.default, type: .debug)
+        }
+        else
+        {
+            os_log("Failed to save structures...", log: OSLog.default, type: .error)
+        }
     }
-    */
+    
+    private func loadStructures() -> [BaseGridObject]?
+    {
+        //return the array of workouts
+        return NSKeyedUnarchiver.unarchiveObject(withFile: BaseGridObject.ArchiveURL.path) as? [BaseGridObject]
+    }
 
 }

@@ -23,7 +23,6 @@ class Workout: NSObject, NSCoding
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("workouts")
     
     // MARK: Types
-    
     struct PropertyKey
     {
         static let name = "name"
