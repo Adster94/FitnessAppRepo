@@ -40,28 +40,28 @@ class BaseViewController: UIViewController
         
         imageViews += [topMiddle, topLeft, topRight, midMiddle, midLeft, midRight, botMiddle, botLeft, botRight]
         
-        //loadEmptyPlots()
-        //saveStructures()
-        
         if let savedStructures = loadStructures()
         {
             placedStructures += savedStructures
             
             for BaseGridObject in savedStructures
             {
-                findView(name: BaseGridObject.positionName).image = BaseGridObject.baseImage
-                
                 if (BaseGridObject.baseImage != UIImage(named: "Empty"))
                 {
-                    print(BaseGridObject.positionName + " image is not empty")
+                    print(findView(name: BaseGridObject.positionName).accessibilityIdentifier! + " image is not empty")
+                    
+                    findView(name: BaseGridObject.positionName).image = BaseGridObject.baseImage
                 }
             }
+            
+            saveStructures()
             
             print("Loaded structures")
         }
         else
         {
             loadEmptyPlots()
+            saveStructures()
             
             print("Loaded empty plots")
         }
@@ -126,7 +126,7 @@ class BaseViewController: UIViewController
         
         for UIImageView in imageViews
         {
-            if UIImageView.accessibilityIdentifier == name
+            if UIImageView.accessibilityIdentifier! == name
             {
                 imageView = UIImageView
             }
