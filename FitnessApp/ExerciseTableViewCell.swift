@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ExerciseTableViewCell: UITableViewCell {
-
+class ExerciseTableViewCell: UITableViewCell
+{
     @IBOutlet weak var exerciseNameLabel: UILabel!
 
     override func awakeFromNib()
@@ -21,5 +21,4 @@ class ExerciseTableViewCell: UITableViewCell {
     {
         super.setSelected(selected, animated: animated)
     }
-
 }

@@ -50,7 +50,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     
     func checkValidExerciseName()
     {
-        //disable the Save button if the text field is empty.
+        //disable the Save button if the text field is empty
         let text = nameTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
@@ -70,7 +70,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
         
         let name = nameTextField.text ?? ""
         
-        //exercise name to be passed to ExerciseTableViewController after the unwind segue.
+        //exercise name to be passed to ExerciseTableViewController after the unwind segue
         exercise = name
     }
     

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class WorkoutTableViewCell: UITableViewCell {
-
+class WorkoutTableViewCell: UITableViewCell
+{
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -25,5 +25,4 @@ class WorkoutTableViewCell: UITableViewCell {
     {
         super.setSelected(selected, animated: animated)
     }
-
 }

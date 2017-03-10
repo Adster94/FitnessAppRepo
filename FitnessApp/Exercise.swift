@@ -11,11 +11,9 @@ import UIKit
 public class Exercise
 {
     // MARK: Properties
-    
     var name: String
     
     // MARK: Initialization
-    
     init?(name: String)
     {
         //the name must not be empty

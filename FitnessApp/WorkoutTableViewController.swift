@@ -74,7 +74,7 @@ class WorkoutTableViewController: UITableViewController
         exerciseList1.append(exercise3)
         exerciseList1.append(exercise4)
         
-        let workout1 = Workout(name: "Cardio Workout", image: image1, rating: 4, exercise: exerciseList1)!
+        let workout1 = Workout(name: "Cardio Workout", image: image1, rating: 4, exercise: exerciseList1, identifier: "completeCardio")!
         
         let image2 = UIImage(named: "Bicep Curls")!
         let exercise5 = "Bicep Curls x4"
@@ -86,7 +86,7 @@ class WorkoutTableViewController: UITableViewController
         exerciseList2.append(exercise6)
         exerciseList2.append(exercise7)
         
-        let workout2 = Workout(name: "Bicep Workout", image: image2, rating: 3, exercise: exerciseList2)!
+        let workout2 = Workout(name: "Bicep Workout", image: image2, rating: 3, exercise: exerciseList2, identifier: "completeBicep")!
         
         let image3 = UIImage(named: "Endurance Cardio")!
         let exercise8 = "60 minute long run"
@@ -96,7 +96,7 @@ class WorkoutTableViewController: UITableViewController
         exerciseList3.append(exercise8)
         exerciseList3.append(exercise9)
         
-        let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3)!
+        let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!
         
         workouts += [workout1, workout2, workout3]
     }
@@ -193,7 +193,7 @@ class WorkoutTableViewController: UITableViewController
         }    
     }
 
-    // Override to support rearranging the table view.
+    //override to support rearranging the table view
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath)
     {
         let moveItem = workouts.remove(at: fromIndexPath.row)
@@ -201,10 +201,10 @@ class WorkoutTableViewController: UITableViewController
         saveWorkouts()
     }
 
-    // Override to support conditional rearranging of the table view.
+    //override to support conditional rearranging of the table view
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
     {
-        // Return false if you do not want the item to be re-orderable.
+        //return false if you do not want the item to be re-orderable
         return true
     }
 

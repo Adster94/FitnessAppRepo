@@ -13,9 +13,9 @@ class AchievementManager: NSObject
 {
     //arrays for storing achievements
     var achievements = [Achievement]()
-    var completedAchievements = [Achievement]()
     var completedAchievement: Achievement?
     var markedIdentifier: String = ""
+    var achievementReward: Int = 25
     
     let coinsManagerInstance = CoinsManager()
     
@@ -27,6 +27,12 @@ class AchievementManager: NSObject
         {
             if (achievement.progressMarks < achievement.achieveMarks)
             {
+                if (achievement.identifier == self.markedIdentifier && (achievement.identifier == "completeCardio" || achievement.identifier == "completeBicep" || achievement.identifier == "completeEndurance"))
+                {
+                    //call check on standard achievement completion
+                    standardCompletion(achievement: achievement)
+                }
+                
                 if (achievement.identifier == self.markedIdentifier)
                 {
                     achievement.progressMarks += 1
@@ -34,9 +40,9 @@ class AchievementManager: NSObject
                     
                     if (achievement.progressMarks == achievement.achieveMarks)
                     {
+                        achievement.achieved = true
                         completedAchievement = achievement
-                        completedAchievement?.achieved = true
-                        coinsManagerInstance.addCoins(value: 10)
+                        coinsManagerInstance.addCoins(value: achievementReward)
                     }
                     saveAchievements()
                 }
@@ -46,11 +52,11 @@ class AchievementManager: NSObject
                 {
                     for firstAchievement in achievements
                     {
-                        if (firstAchievement.identifier == "firstWorkout")
+                        if (firstAchievement.identifier == "firstWorkout" && firstAchievement.progressMarks < 1)
                         {
                             firstAchievement.progressMarks += 1
                             completedAchievement = firstAchievement
-                            coinsManagerInstance.addCoins(value: 10)
+                            coinsManagerInstance.addCoins(value: achievementReward)
                             saveAchievements()
                         }
                     }
@@ -69,9 +75,59 @@ class AchievementManager: NSObject
         let achievement5 = Achievement(name: "Completionist", achievementDescription: "Complete every standard workout in the list", progressMarks: 0, achieveMarks: 3, identifier: "completeStandard")!
         let achievement6 = Achievement(name: "Cardio, check!", achievementDescription: "Complete a Cardio Workout", progressMarks: 0, achieveMarks: 1, identifier: "completeCardio")!
         let achievement7 = Achievement(name: "Endured", achievementDescription: "Complete a Endurance Workout", progressMarks: 0, achieveMarks: 1, identifier: "completeEndurance")!
+        let achievement8 = Achievement(name: "Hercules", achievementDescription: "Complete a Bicep Workout", progressMarks: 0, achieveMarks: 1, identifier: "completeBicep")!
         
         //add basic ahcievemnts to the array
-        achievements += [achievement1, achievement2, achievement3, achievement4, achievement5, achievement6, achievement7]
+        achievements += [achievement1, achievement2, achievement3, achievement4, achievement5, achievement6, achievement7, achievement8]
+    }
+    
+    func standardCompletion(achievement: Achievement)
+    {
+        //check progress for the standard completion achievement
+        if (achievement.identifier == "completeCardio" && !achievement.achieved)
+        {
+            for standardAchievement in achievements
+            {
+                if (standardAchievement.identifier == "completeStandard")
+                {
+                    standardAchievement.progressMarks += 1
+                }
+            }
+        }
+        
+        if (achievement.identifier == "completeBicep" && !achievement.achieved)
+        {
+            for standardAchievement in achievements
+            {
+                if (standardAchievement.identifier == "completeStandard")
+                {
+                    standardAchievement.progressMarks += 1
+                }
+            }
+        }
+        
+        if (achievement.identifier == "completeEndurance" && !achievement.achieved)
+        {
+            for standardAchievement in achievements
+            {
+                if (standardAchievement.identifier == "completeStandard")
+                {
+                    standardAchievement.progressMarks += 1
+                }
+            }
+        }
+        
+        for standardAchievement in achievements
+        {
+            if (standardAchievement.progressMarks == standardAchievement.achieveMarks)
+            {
+                standardAchievement.achieved = true
+                coinsManagerInstance.addCoins(value: achievementReward)
+                completedAchievement = standardAchievement
+            }
+        }
+        
+        saveAchievements()
     }
     
     //functions for the loading and saving of achievements
@@ -94,27 +150,5 @@ class AchievementManager: NSObject
     public func loadAchievements() -> [Achievement]?
     {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Achievement.ArchiveURL.path) as? [Achievement]
-    }
-    
-    //functions for loading and saving completed achievements
-    public func saveCompletedAchievements()
-    {
-        //bool that changes based on if the archive worked
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(completedAchievements, toFile: Achievement.CompletedArchiveURL.path)
-        
-        //logs the appropriate response
-        if isSuccessfulSave
-        {
-            os_log("Completed achievements saved successfully.", log: OSLog.default, type: .debug)
-        }
-        else
-        {
-            os_log("Failed to save completed achievements...", log: OSLog.default, type: .error)
-        }
-    }
-    
-    public func loadCompletedAchievements() -> [Achievement]?
-    {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Achievement.CompletedArchiveURL.path) as? [Achievement]
     }
 }

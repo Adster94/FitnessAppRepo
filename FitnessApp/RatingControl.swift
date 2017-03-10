@@ -34,7 +34,7 @@ class RatingControl: UIView
         let emptyStarImage = UIImage(named: "emptyStar")
         let filledStarImage = UIImage(named: "filledStar")
         
-        // Generate five buttons, each stacked ontop of one another
+        //generate five buttons, each stacked ontop of one another
         for _ in 0..<starCount
         {
             let button = UIButton()

@@ -50,14 +50,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         achievementManager.saveAchievements()
         
         //load any saved achievementss, otherwise load the starting versions
-        if let savedAchievements = achievementManager.loadAchievements()
+        /*if let savedAchievements = achievementManager.loadAchievements()
         {
             achievementManager.achievements += savedAchievements
         }
         else
         {
             achievementManager.loadStartingAchievements()
-        }
+        }*/
         
         //start off timer for the achievement check
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
@@ -103,12 +103,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         if let sourceViewController = sender.source as? ActiveWorkoutViewController
         {
             //reset the current workout selected, upon completion of workout
-            selectedWorkout = nil
             selectedWorkoutLabel.text = "Please select a workout..."
             startButton.isEnabled = false
             completedWorkout = sourceViewController.completed
             achievementManager.markedIdentifier = "completeWorkout"
             achievementManager.checkAchievements()
+            
+            achievementManager.markedIdentifier = (selectedWorkout?.achievementIdentifier)!
+            achievementManager.checkAchievements()
+            
+            selectedWorkout = nil
         }
     }
     
@@ -124,13 +128,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             
             present(achievementAlert, animated: true, completion: nil)
             
-            //add completed achievement to the list
-            achievementManager.completedAchievements.append(achievementManager.completedAchievement!)
-            
             achievementManager.completedAchievement = nil
             
             //saveAchievements()
-            //saveCompletedAchievements()
         }
     }
     

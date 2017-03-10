@@ -11,7 +11,6 @@ import UIKit
 class WorkoutViewController: UIViewController, UITextFieldDelegate,
     UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    
     // MARK: Properties
     @IBOutlet weak var inputNameField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -84,7 +83,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
-        // Dismiss the picker if the user canceled.
+        //dismiss the picker if the user canceled
         dismiss(animated: true, completion: nil)
     }
     
@@ -128,9 +127,10 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
                 let image = photoImageView.image
                 let rating = ratingControl.rating
                 let exerciseList = exercises
+                let identifier = ""
                 
                 //set the workout to be passed to WorkoutTableViewController after the unwind segue.
-                workout = Workout(name: name, image: image, rating: rating, exercise: exerciseList)
+                workout = Workout(name: name, image: image, rating: rating, exercise: exerciseList, identifier: identifier)
             }
         }
         

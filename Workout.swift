@@ -17,6 +17,7 @@ class Workout: NSObject, NSCoding
     var rating: Int
     //var exercises = [Exercise]()
     var exercises = [String]()
+    var achievementIdentifier: String
     
     //MARK: Archiving Paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -29,11 +30,12 @@ class Workout: NSObject, NSCoding
         static let image = "image"
         static let rating = "rating"
         static let exercises = "exercises"
+        static let identifier = "identifier"
     }
     
     // MARK: Initilisation
     //init?(name: String, image: UIImage?, rating: Int, exercise: [Exercise])
-    init?(name: String, image: UIImage?, rating: Int, exercise: [String])
+    init?(name: String, image: UIImage?, rating: Int, exercise: [String], identifier: String)
     {
         //the name must not be empty
         guard !name.isEmpty else
@@ -47,11 +49,17 @@ class Workout: NSObject, NSCoding
             return nil
         }
         
+        guard !identifier.isEmpty else
+        {
+            return nil
+        }
+        
         //initialise the stored values
         self.name = name
         self.image = image
         self.rating = rating
         self.exercises = exercise
+        self.achievementIdentifier = identifier
     }
     
     required convenience init?(coder aDecoder: NSCoder)
@@ -72,8 +80,10 @@ class Workout: NSObject, NSCoding
         //let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [Exercise]
         let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [String]
         
+        let identifier = aDecoder.decodeObject(forKey: PropertyKey.identifier) as! String
+        
         //must call designated initializer
-        self.init(name: name, image: image, rating: rating, exercise: exercises)
+        self.init(name: name, image: image, rating: rating, exercise: exercises, identifier: identifier)
     }
     
     // MARK: NSCoding
@@ -83,5 +93,6 @@ class Workout: NSObject, NSCoding
         aCoder.encode(image, forKey: PropertyKey.image)
         aCoder.encode(rating, forKey: PropertyKey.rating)
         aCoder.encode(exercises, forKey: PropertyKey.exercises)
+        aCoder.encode(achievementIdentifier, forKey: PropertyKey.identifier)
     }
 }

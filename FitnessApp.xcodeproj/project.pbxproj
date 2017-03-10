@@ -105,34 +105,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		660063571E51AC91004D9BCC /* Table Views */ = {
-			isa = PBXGroup;
-			children = (
-				6643FF3C1E49ECAA00A70DCD /* AchievementTableViewController.swift */,
-				6643FF3E1E49F73A00A70DCD /* AchievementTableViewCell.swift */,
-				66C781951DD5ED00002DCFDC /* WorkoutTableViewController.swift */,
-				660F1AF61E263F8B0039736D /* WorkoutSelectionTableViewController.swift */,
-				66C781931DD5E1C5002DCFDC /* WorkoutTableViewCell.swift */,
-				662D1CDA1E041252009C20AA /* ExerciseTableViewController.swift */,
-				662D1CD81E040D2E009C20AA /* ExerciseTableViewCell.swift */,
-				660608D41DD0C166001C9EB8 /* RatingControl.swift */,
-			);
-			name = "Table Views";
-			sourceTree = "<group>";
-		};
-		660063581E51ACD6004D9BCC /* View Controller */ = {
+		660063581E51ACD6004D9BCC /* Home and Workout System */ = {
 			isa = PBXGroup;
 			children = (
 				66D8BFD01E25133A001CDCE3 /* HomeViewController.swift */,
-				66C1A16C1E042622004B63CE /* ExerciseViewController.swift */,
-				66B858091DC3772600C61429 /* WorkoutViewController.swift */,
 				660F1AF81E264DB30039736D /* ActiveWorkoutViewController.swift */,
-				66B585C41E56065800BAF2D0 /* BaseViewController.swift */,
-				66B585C61E56123400BAF2D0 /* StoreCollectionViewController.swift */,
-				66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */,
-				664780DC1E5B0B6200F09C85 /* StoreCollectionViewCell.swift */,
 			);
-			name = "View Controller";
+			name = "Home and Workout System";
 			sourceTree = "<group>";
 		};
 		660063591E51ACF9004D9BCC /* Storyboards */ = {
@@ -144,18 +123,46 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		6613C2031E4B2E7600906848 /* Item Classes */ = {
+		66572B2E1E72BE0D001DDD14 /* Base Development */ = {
 			isa = PBXGroup;
 			children = (
-				662D1CDC1E0412E6009C20AA /* Exercise.swift */,
-				66C7818C1DD49BAD002DCFDC /* Workout.swift */,
-				66D961641E49E653005B57B7 /* Achievement.swift */,
-				6654E9321E548F6900CDBF98 /* CoinsManager.swift */,
+				66B585C41E56065800BAF2D0 /* BaseViewController.swift */,
+				66B585C61E56123400BAF2D0 /* StoreCollectionViewController.swift */,
+				66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */,
+				664780DC1E5B0B6200F09C85 /* StoreCollectionViewCell.swift */,
 				668083901E54B0E1002FD349 /* StoreObject.swift */,
-				6667692F1E643D4300B881CE /* AchievementManager.swift */,
 				66C3E98E1E68420900184BF2 /* BaseGridObject.swift */,
 			);
-			name = "Item Classes";
+			name = "Base Development";
+			sourceTree = "<group>";
+		};
+		66572B2F1E72BE42001DDD14 /* Reward System */ = {
+			isa = PBXGroup;
+			children = (
+				66D961641E49E653005B57B7 /* Achievement.swift */,
+				6643FF3C1E49ECAA00A70DCD /* AchievementTableViewController.swift */,
+				6643FF3E1E49F73A00A70DCD /* AchievementTableViewCell.swift */,
+				6667692F1E643D4300B881CE /* AchievementManager.swift */,
+				6654E9321E548F6900CDBF98 /* CoinsManager.swift */,
+			);
+			name = "Reward System";
+			sourceTree = "<group>";
+		};
+		66572B301E72BE67001DDD14 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				66B858091DC3772600C61429 /* WorkoutViewController.swift */,
+				66C1A16C1E042622004B63CE /* ExerciseViewController.swift */,
+				66C781951DD5ED00002DCFDC /* WorkoutTableViewController.swift */,
+				660F1AF61E263F8B0039736D /* WorkoutSelectionTableViewController.swift */,
+				66C781931DD5E1C5002DCFDC /* WorkoutTableViewCell.swift */,
+				662D1CDA1E041252009C20AA /* ExerciseTableViewController.swift */,
+				662D1CD81E040D2E009C20AA /* ExerciseTableViewCell.swift */,
+				660608D41DD0C166001C9EB8 /* RatingControl.swift */,
+				662D1CDC1E0412E6009C20AA /* Exercise.swift */,
+				66C7818C1DD49BAD002DCFDC /* Workout.swift */,
+			);
+			name = Workouts;
 			sourceTree = "<group>";
 		};
 		66B857FB1DC3772600C61429 = {
@@ -180,9 +187,10 @@
 			isa = PBXGroup;
 			children = (
 				660063591E51ACF9004D9BCC /* Storyboards */,
-				660063581E51ACD6004D9BCC /* View Controller */,
-				660063571E51AC91004D9BCC /* Table Views */,
-				6613C2031E4B2E7600906848 /* Item Classes */,
+				66572B301E72BE67001DDD14 /* Workouts */,
+				66572B2F1E72BE42001DDD14 /* Reward System */,
+				66572B2E1E72BE0D001DDD14 /* Base Development */,
+				660063581E51ACD6004D9BCC /* Home and Workout System */,
 				66B858071DC3772600C61429 /* AppDelegate.swift */,
 				66B8580E1DC3772600C61429 /* Assets.xcassets */,
 				66B858131DC3772600C61429 /* Info.plist */,
