@@ -20,8 +20,8 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var exerciseNumberLabel: UILabel!
     
     var workout: Workout?
-    //var exercises = [Exercise]()
-    var exercises = [String]()
+    var exercises = [Exercise]()
+    //var exercises = [String]()
     var achievementIdentifier: String = ""
     
     let imagePickerController = UIImagePickerController()

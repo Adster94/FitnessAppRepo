@@ -17,7 +17,8 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     
-    var exercise: String?
+    var exercise: Exercise?
+    //var exercise: String?
 
     override func viewDidLoad()
     {
@@ -71,7 +72,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
         let name = nameTextField.text ?? ""
         
         //exercise name to be passed to ExerciseTableViewController after the unwind segue
-        exercise = name
+        exercise?.name = name
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem)

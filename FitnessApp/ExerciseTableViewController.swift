@@ -11,8 +11,8 @@ import UIKit
 class ExerciseTableViewController: UITableViewController
 {
     // MARK: Properties
-    //var exercises = [Exercise]()
-    var exercises = [String]()
+    var exercises = [Exercise]()
+    //var exercises = [String]()
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
@@ -30,25 +30,25 @@ class ExerciseTableViewController: UITableViewController
     
     func loadSampleExercises()
     {
-        /*let name1 = "Basic muscle exercise 1"
+        let name1 = "Basic muscle exercise 1"
         let name2 = "Bicep curls exercise"
         let name3 = "Basic muscle exercise 2"
         
-        let exercise1 = Exercise(name: name1)
-        let exercise2 = Exercise(name: name2)
-        let exercise3 = Exercise(name: name3)
+        let exercise1 = Exercise(name: name1, image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "A basic muscle exercise. Mk 1")
+        let exercise2 = Exercise(name: name2, image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "A basic bicep curl exercise")
+        let exercise3 = Exercise(name: name3, image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "A basic muscle exercise. Mk 2")
         
         exercises.append(exercise1!)
         exercises.append(exercise2!)
-        exercises.append(exercise3!)*/
+        exercises.append(exercise3!)
         
-        let exercise1 = "Basic muscle exercise 1"
+        /*let exercise1 = "Basic muscle exercise 1"
         let exercise2 = "Bicep curls exercise"
         let exercise3 = "Basic msucle exercise 2"
         
         exercises.append(exercise1)
         exercises.append(exercise2)
-        exercises.append(exercise3)
+        exercises.append(exercise3)*/
     }
 
     override func didReceiveMemoryWarning()
@@ -76,9 +76,7 @@ class ExerciseTableViewController: UITableViewController
             fatalError("The dequeued cell is not an instance of ExerciseTableViewCell.")
         }
         
-        let name = exercises[indexPath.row]
-        
-        cell.exerciseNameLabel.text = name
+        cell.exerciseNameLabel.text = exercises[indexPath.row].name
         
         return cell
     }

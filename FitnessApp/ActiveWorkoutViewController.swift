@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ActiveWorkoutViewController: UIViewController {
-
+class ActiveWorkoutViewController: UIViewController
+{
     @IBOutlet weak var workoutName: UILabel!
     @IBOutlet weak var currentExercise: UILabel!
     @IBOutlet weak var countingLabel: UILabel!
     @IBOutlet weak var completedView: UIView!
+    @IBOutlet weak var currentDescription: UILabel!
+    @IBOutlet weak var exerciseImage: UIImageView!
     
     var activeWorkout: Workout?
     
@@ -85,11 +87,13 @@ class ActiveWorkoutViewController: UIViewController {
         //switch between exercises and rest periods
         if (exerciseFlag)
         {
-            counter = 30
             let activeExercise = activeWorkout?.exercises[exerciseCounter]
+            counter = (activeExercise?.length)!
                 
             OperationQueue.main.addOperation({
-                    self.currentExercise.text = activeExercise
+                    self.currentExercise.text = activeExercise?.name
+                    self.currentDescription.text = activeExercise?.exerciseDescription
+                    self.exerciseImage.image = activeExercise?.image
             })
         }
         else

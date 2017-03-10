@@ -24,7 +24,10 @@ class WorkoutTableViewController: UITableViewController
         //use the edit button item provided by the table view controller
         navigationItem.leftBarButtonItem = editButtonItem
         
-        //load any saved workouts, otherwise load sample data
+        loadSampleWorkouts()
+        saveWorkouts()
+        
+        /*//load any saved workouts, otherwise load sample data
         if let savedWorkouts = loadWorkouts()
         {
             workouts += savedWorkouts
@@ -33,7 +36,7 @@ class WorkoutTableViewController: UITableViewController
         {
             //load sample workouts
             loadSampleWorkouts()
-        }
+        }*/
         
         //start off timer for the achievement check
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
@@ -41,12 +44,12 @@ class WorkoutTableViewController: UITableViewController
     
     func loadSampleWorkouts()
     {
-        //create two basic workouts for displaying in the cells
-        /*let image1 = UIImage(named: "Cardio")!
-        let exercise1 = Exercise(name: "5 minute sprint")
-        let exercise2 = Exercise(name: "30 minute long run")
-        let exercise3 = Exercise(name: "5 minute sprint")
-        let exercise4 = Exercise(name: "10 minute on/off run")
+        //create three basic workouts for displaying in the cells
+        let image1 = UIImage(named: "Cardio")!
+        let exercise1 = Exercise(name: "5 minute sprint", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Small sprint")
+        let exercise2 = Exercise(name: "30 minute long run", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Long run")
+        let exercise3 = Exercise(name: "5 minute sprint", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Small sprint")
+        let exercise4 = Exercise(name: "10 minute on/off run", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "On/off sprint")
         
         var exerciseList1 = [Exercise]()
         exerciseList1.append(exercise1!)
@@ -54,21 +57,31 @@ class WorkoutTableViewController: UITableViewController
         exerciseList1.append(exercise3!)
         exerciseList1.append(exercise4!)
         
-        let workout1 = Workout(name: "Cardio Workout", image: image1, rating: 4, exercise: exerciseList1)!
+        let workout1 = Workout(name: "Cardio Workout", image: image1, rating: 4, exercise: exerciseList1, identifier: "completeCardio")!
         
         let image2 = UIImage(named: "Bicep Curls")!
-        let exercise5 = Exercise(name: "Bicep Curls x4")
-        let exercise6 = Exercise(name: "Bar bicep curl x3")
-        let exercise7 = Exercise(name: "Bicep Curl to failure")
+        let exercise5 = Exercise(name: "Bicep Curls x4", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Four bicep curls")
+        let exercise6 = Exercise(name: "Bar bicep curl x3", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Three barbell bicep curls")
+        let exercise7 = Exercise(name: "Bicep Curl to failure", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Bicep curls until you can't")
         
         var exerciseList2 = [Exercise]()
         exerciseList2.append(exercise5!)
         exerciseList2.append(exercise6!)
         exerciseList2.append(exercise7!)
         
-        let workout2 = Workout(name: "Bicep Workout", image: image2, rating: 3, exercise: exerciseList2)!*/
+        let workout2 = Workout(name: "Bicep Workout", image: image2, rating: 3, exercise: exerciseList2, identifier: "completeBicep")!
         
-        let image1 = UIImage(named: "Cardio")!
+        let image3 = UIImage(named: "Endurance Cardio")!
+        let exercise8 = Exercise(name: "60 minute long run", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Extra Long run")
+        let exercise9 = Exercise(name: "60 minute cycle", image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: "Extra Long cycle")
+        
+        var exerciseList3 = [Exercise]()
+        exerciseList3.append(exercise8!)
+        exerciseList3.append(exercise9!)
+        
+        let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!
+        
+        /*let image1 = UIImage(named: "Cardio")!
         let exercise1 = "5 minute sprint"
         let exercise2 = "30 minute long run"
         let exercise3 = "5 minute sprint"
@@ -102,7 +115,7 @@ class WorkoutTableViewController: UITableViewController
         exerciseList3.append(exercise8)
         exerciseList3.append(exercise9)
         
-        let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!
+        let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!*/
         
         workouts += [workout1, workout2, workout3]
     }

@@ -429,7 +429,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fme-nX-1Fl">
-                                <rect key="frame" x="36" y="174" width="303" height="21"/>
+                                <rect key="frame" x="36" y="170" width="303" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -453,7 +453,14 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Exercise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBB-id-Jrf">
-                                <rect key="frame" x="36" y="241" width="303" height="21"/>
+                                <rect key="frame" x="36" y="426" width="303" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Exercise Description" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmA-0W-SYN" userLabel="Current Exercise Description">
+                                <rect key="frame" x="36" y="463" width="303" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -488,6 +495,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBE-th-xIO" userLabel="Exercise Image">
+                                <rect key="frame" x="87" y="199" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -511,7 +522,9 @@
                     <connections>
                         <outlet property="completedView" destination="wJy-F4-qYA" id="rCE-NP-1mY"/>
                         <outlet property="countingLabel" destination="fme-nX-1Fl" id="af5-uS-0wG"/>
+                        <outlet property="currentDescription" destination="EmA-0W-SYN" id="dFh-cT-MGz"/>
                         <outlet property="currentExercise" destination="WBB-id-Jrf" id="YuQ-hZ-Vj0"/>
+                        <outlet property="exerciseImage" destination="fBE-th-xIO" id="FLz-Wi-Z7a"/>
                         <outlet property="workoutName" destination="XOY-kJ-ifx" id="XGj-eP-6Bf"/>
                         <segue destination="QrU-N8-u7I" kind="unwind" identifier="unwindToDeactiveWorkout" unwindAction="unwindToDeactivateWorkoutWithSender:" id="Hx0-zY-UFx"/>
                     </connections>
@@ -519,7 +532,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwz-n3-sUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QrU-N8-u7I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1970" y="1790"/>
+            <point key="canvasLocation" x="-1970.4000000000001" y="1789.6551724137933"/>
         </scene>
         <!--Home-->
         <scene sceneID="T7o-0U-R9f">

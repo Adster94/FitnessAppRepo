@@ -15,8 +15,8 @@ class Workout: NSObject, NSCoding
     var name: String
     var image: UIImage?
     var rating: Int
-    //var exercises = [Exercise]()
-    var exercises = [String]()
+    var exercises = [Exercise]()
+    //var exercises = [String]()
     var achievementIdentifier: String
     
     //MARK: Archiving Paths
@@ -35,7 +35,7 @@ class Workout: NSObject, NSCoding
     
     // MARK: Initilisation
     //init?(name: String, image: UIImage?, rating: Int, exercise: [Exercise])
-    init?(name: String, image: UIImage?, rating: Int, exercise: [String], identifier: String)
+    init?(name: String, image: UIImage?, rating: Int, exercise: [Exercise], identifier: String)
     {
         //the name must not be empty
         guard !name.isEmpty else
@@ -67,13 +67,13 @@ class Workout: NSObject, NSCoding
             return nil
         }
         
-        //because photo is an optional property of Meal, just use conditional cast
+        //because photo is an optional property of workout, just use conditional cast
         let image = aDecoder.decodeObject(forKey: PropertyKey.image) as? UIImage
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
         //let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [Exercise]
-        let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [String]
+        let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [Exercise]
         
         let identifier = aDecoder.decodeObject(forKey: PropertyKey.identifier) as! String
         
