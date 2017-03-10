@@ -49,11 +49,6 @@ class Workout: NSObject, NSCoding
             return nil
         }
         
-        guard !identifier.isEmpty else
-        {
-            return nil
-        }
-        
         //initialise the stored values
         self.name = name
         self.image = image

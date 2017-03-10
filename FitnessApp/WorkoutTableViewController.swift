@@ -13,6 +13,10 @@ class WorkoutTableViewController: UITableViewController
 {
     // MARK: Properties
     var workouts = [Workout]()
+    var timer: Timer!
+    
+    var achievementAlert: UIAlertController!
+    let achievementManager = AchievementManager()
     
     override func viewDidLoad()
     {
@@ -31,6 +35,9 @@ class WorkoutTableViewController: UITableViewController
             //load sample workouts
             loadSampleWorkouts()
         }
+        
+        //start off timer for the achievement check
+        timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
     }
     
     func loadSampleWorkouts()
@@ -100,6 +107,24 @@ class WorkoutTableViewController: UITableViewController
         
         workouts += [workout1, workout2, workout3]
     }
+    
+    public func checkAchieved()
+    {
+        if (achievementManager.completedAchievement != nil)
+        {
+            //display achieved popup
+            achievementAlert = UIAlertController(title: "Achievement Unlocked!", message:
+                "Well done, you unlocked: " + (achievementManager.completedAchievement?.name)!, preferredStyle: UIAlertControllerStyle.alert)
+            
+            achievementAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+            
+            present(achievementAlert, animated: true, completion: nil)
+            
+            achievementManager.completedAchievement = nil
+            
+            //saveAchievements()
+        }
+    }
 
     override func didReceiveMemoryWarning()
     {
@@ -152,6 +177,10 @@ class WorkoutTableViewController: UITableViewController
                 //update an existing workout
                 workouts[selectedIndexPath.row] = workout
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                
+                print("workout updated")
+                achievementManager.markedIdentifier = "editWorkout"
+                achievementManager.checkAchievements()
             }
             else
             {
@@ -163,11 +192,18 @@ class WorkoutTableViewController: UITableViewController
                 
                 //add animation to show inserted workout
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
+                
+                print("workout made")
+                achievementManager.markedIdentifier = "makeWorkout"
+                achievementManager.checkAchievements()
             }
             
+            print("saving workouts")
             //save the workouts in the list
             saveWorkouts()
         }
+        
+        print("unwind workout list")
     }
  
     //override to support conditional editing of the table view

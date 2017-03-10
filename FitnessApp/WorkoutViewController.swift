@@ -22,6 +22,9 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     var workout: Workout?
     //var exercises = [Exercise]()
     var exercises = [String]()
+    var achievementIdentifier: String = ""
+    
+    let imagePickerController = UIImagePickerController()
     
     override func viewDidLoad()
     {
@@ -29,6 +32,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
         
         //handle the text field's input through delegate callbacks
         inputNameField.delegate = self
+        imagePickerController.delegate = self
         
         //update the UI for the workout scene, with the loaded workout
         if let workout = workout
@@ -38,6 +42,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
             photoImageView.image = workout.image
             ratingControl.rating = workout.rating
             exercises = workout.exercises
+            achievementIdentifier = workout.achievementIdentifier
             exerciseNumberLabel.text = String(workout.exercises.count)  + " exercises"
         }
         
@@ -87,7 +92,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
         dismiss(animated: true, completion: nil)
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
     {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -127,7 +132,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
                 let image = photoImageView.image
                 let rating = ratingControl.rating
                 let exerciseList = exercises
-                let identifier = ""
+                let identifier = achievementIdentifier
                 
                 //set the workout to be passed to WorkoutTableViewController after the unwind segue.
                 workout = Workout(name: name, image: image, rating: rating, exercise: exerciseList, identifier: identifier)
@@ -149,14 +154,10 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
         //hide the keyboard
         inputNameField.resignFirstResponder()
         
-        //lets the user pick an image from their library
-        let imagePickerController = UIImagePickerController()
-        
         //make sure images come from library, not camera
         imagePickerController.sourceType = .photoLibrary
         
         //view controller is notified when an image is selected
-        imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
     }
     
@@ -169,6 +170,11 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
             exercises = exerciseList
             updateExerciseLabel()
         }
+    }
+    
+    @IBAction func cancelButton(_ sender: Any)
+    {
+        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Private Methods

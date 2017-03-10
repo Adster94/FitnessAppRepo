@@ -25,6 +25,7 @@ class AchievementManager: NSObject
         //loop through all the achievements to progress next achievement
         for achievement in achievements
         {
+            print(self.markedIdentifier + " is the marked identifier (loop print)")
             if (achievement.progressMarks < achievement.achieveMarks)
             {
                 if (achievement.identifier == self.markedIdentifier && (achievement.identifier == "completeCardio" || achievement.identifier == "completeBicep" || achievement.identifier == "completeEndurance"))
@@ -33,8 +34,10 @@ class AchievementManager: NSObject
                     standardCompletion(achievement: achievement)
                 }
                 
+                print(self.markedIdentifier + " is the marked identifier")
                 if (achievement.identifier == self.markedIdentifier)
                 {
+                    print(achievement.identifier + " has been progressed")
                     achievement.progressMarks += 1
                     self.markedIdentifier = ""
                     
