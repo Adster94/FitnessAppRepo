@@ -11,6 +11,8 @@ import os.log
 
 class AchievementManager: NSObject
 {
+    static let instance = AchievementManager()
+    
     //arrays for storing achievements
     var achievements = [Achievement]()
     var completedAchievement: Achievement?
@@ -22,6 +24,9 @@ class AchievementManager: NSObject
     // MARK: - Achievement methods
     public func checkAchievements()
     {
+        print("checking achievements")
+        print(String(achievements.count) + " number of achievements")
+        
         //loop through all the achievements to progress next achievement
         for achievement in achievements
         {

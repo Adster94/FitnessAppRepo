@@ -22,9 +22,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     var timer: Timer!
     var achievementAlert: UIAlertController!
     
-    let coinsManagerInstance = CoinsManager()
-    let achievementManager = AchievementManager()
-    
     @IBOutlet weak var testCoinsLabel: UILabel!
     
     override func viewDidLoad()
@@ -46,8 +43,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         startButton.setTitleColor(UIColor.gray, for: .disabled)
         
         //RESET SAVED ACHIEVEMENTS
-        achievementManager.loadStartingAchievements()
-        achievementManager.saveAchievements()
+        AchievementManager.instance.loadStartingAchievements()
+        AchievementManager.instance.saveAchievements()
         
         //load any saved achievementss, otherwise load the starting versions
         /*if let savedAchievements = achievementManager.loadAchievements()
@@ -63,7 +60,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
         
         //USED FOR TESTING
-        testCoinsLabel.text = "Current Coins: " + String(coinsManagerInstance.getCoins())
+        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
 
     override func didReceiveMemoryWarning()
@@ -106,11 +103,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             selectedWorkoutLabel.text = "Please select a workout..."
             startButton.isEnabled = false
             completedWorkout = sourceViewController.completed
-            achievementManager.markedIdentifier = "completeWorkout"
-            achievementManager.checkAchievements()
+            AchievementManager.instance.markedIdentifier = "completeWorkout"
+            AchievementManager.instance.checkAchievements()
             
-            achievementManager.markedIdentifier = (selectedWorkout?.achievementIdentifier)!
-            achievementManager.checkAchievements()
+            AchievementManager.instance.markedIdentifier = (selectedWorkout?.achievementIdentifier)!
+            AchievementManager.instance.checkAchievements()
             
             selectedWorkout = nil
         }
@@ -118,17 +115,17 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     public func checkAchieved()
     {
-        if (achievementManager.completedAchievement != nil)
+        if (AchievementManager.instance.completedAchievement != nil)
         {
             //display achieved popup
             achievementAlert = UIAlertController(title: "Achievement Unlocked!", message:
-                "Well done, you unlocked: " + (achievementManager.completedAchievement?.name)!, preferredStyle: UIAlertControllerStyle.alert)
+                "Well done, you unlocked: " + (AchievementManager.instance.completedAchievement?.name)!, preferredStyle: UIAlertControllerStyle.alert)
             
             achievementAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
             
             present(achievementAlert, animated: true, completion: nil)
             
-            achievementManager.completedAchievement = nil
+            AchievementManager.instance.completedAchievement = nil
             
             //saveAchievements()
         }
@@ -143,13 +140,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     //MARK: TEST FUNCTIONS
     @IBAction func testRemoveCoins(_ sender: Any)
     {
-        coinsManagerInstance.removeCoins(value: 10)
-        testCoinsLabel.text = "Current Coins: " + String(coinsManagerInstance.getCoins())
+        CoinsManager.instance.removeCoins(value: 10)
+        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
     
     @IBAction func testAddCoins(_ sender: Any)
     {
-        coinsManagerInstance.addCoins(value: 15)
-        testCoinsLabel.text = "Current Coins: " + String(coinsManagerInstance.getCoins())
+        CoinsManager.instance.addCoins(value: 15)
+        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
 }

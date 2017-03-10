@@ -10,6 +10,8 @@ import UIKit
 
 public class CoinsManager: NSObject
 {
+    static let instance = CoinsManager()
+    
     //MARK: Saving coins
     static let userDefaults = UserDefaults.standard
     static let totalCoinsKey = "TotalCoins"

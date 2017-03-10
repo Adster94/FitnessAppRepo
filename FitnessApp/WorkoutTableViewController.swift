@@ -16,7 +16,6 @@ class WorkoutTableViewController: UITableViewController
     var timer: Timer!
     
     var achievementAlert: UIAlertController!
-    let achievementManager = AchievementManager()
     
     override func viewDidLoad()
     {
@@ -110,17 +109,17 @@ class WorkoutTableViewController: UITableViewController
     
     public func checkAchieved()
     {
-        if (achievementManager.completedAchievement != nil)
+        if (AchievementManager.instance.completedAchievement != nil)
         {
             //display achieved popup
             achievementAlert = UIAlertController(title: "Achievement Unlocked!", message:
-                "Well done, you unlocked: " + (achievementManager.completedAchievement?.name)!, preferredStyle: UIAlertControllerStyle.alert)
+                "Well done, you unlocked: " + (AchievementManager.instance.completedAchievement?.name)!, preferredStyle: UIAlertControllerStyle.alert)
             
             achievementAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
             
             present(achievementAlert, animated: true, completion: nil)
             
-            achievementManager.completedAchievement = nil
+            AchievementManager.instance.completedAchievement = nil
             
             //saveAchievements()
         }
@@ -179,8 +178,8 @@ class WorkoutTableViewController: UITableViewController
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
                 
                 print("workout updated")
-                achievementManager.markedIdentifier = "editWorkout"
-                achievementManager.checkAchievements()
+                AchievementManager.instance.markedIdentifier = "editWorkout"
+                AchievementManager.instance.checkAchievements()
             }
             else
             {
@@ -194,11 +193,10 @@ class WorkoutTableViewController: UITableViewController
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
                 
                 print("workout made")
-                achievementManager.markedIdentifier = "makeWorkout"
-                achievementManager.checkAchievements()
+                AchievementManager.instance.markedIdentifier = "makeWorkout"
+                AchievementManager.instance.checkAchievements()
             }
             
-            print("saving workouts")
             //save the workouts in the list
             saveWorkouts()
         }
