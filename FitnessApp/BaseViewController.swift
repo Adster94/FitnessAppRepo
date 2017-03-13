@@ -183,8 +183,8 @@ class BaseViewController: UIViewController
         {
             let tempObject = findView(name: BaseGridObject.positionName)
             
-            tempObject.image = selectedObjectView.image
-            BaseGridObject.baseImage = selectedObjectView.image
+            tempObject.image = UIImage(named: "Empty")
+            BaseGridObject.baseImage = UIImage(named: "Empty")
         }
         
         saveStructures()
