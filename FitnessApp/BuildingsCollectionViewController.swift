@@ -9,15 +9,15 @@
 import UIKit
 import os.log
 
-class StoreCollectionViewController: UICollectionViewController
+class BuildingsCollectionViewController: UICollectionViewController
 {
     let reuseIdentifier = "StoreCell"
     
     //array to store store objects
-    var storeObjects = [StoreObject]()
+    var storeBuildings = [BuildingObject]()
     
     let coinsManagerInstance = CoinsManager()
-    var selectedObject: StoreObject!
+    var selectedBuilding: BuildingObject!
     
     override func viewDidLoad()
     {
@@ -26,9 +26,9 @@ class StoreCollectionViewController: UICollectionViewController
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-        if let savedObjects = loadObjects()
+        if let savedObjects = loadBuildings()
         {
-            storeObjects += savedObjects
+            storeBuildings += savedObjects
         }
         else
         {
@@ -39,35 +39,27 @@ class StoreCollectionViewController: UICollectionViewController
     func loadStoreObjects()
     {
         let image1 = UIImage(named: "Jail")!
-        let storeObject1 = StoreObject(unlocked: false, cost: 20, itemIdentifier: "Jail", image: image1)!
+        let storeObject1 = BuildingObject(unlocked: false, cost: 20, itemIdentifier: "Jail", image: image1)!
         
         let image2 = UIImage(named: "Garage")!
-        let storeObject2 = StoreObject(unlocked: false, cost: 30, itemIdentifier: "Garage", image: image2)!
+        let storeObject2 = BuildingObject(unlocked: false, cost: 30, itemIdentifier: "Garage", image: image2)!
         
         let image3 = UIImage(named: "Workshop")!
-        let storeObject3 = StoreObject(unlocked: false, cost: 50, itemIdentifier: "Workshop", image: image3)!
+        let storeObject3 = BuildingObject(unlocked: false, cost: 50, itemIdentifier: "Workshop", image: image3)!
         
         let image4 = UIImage(named: "StockStoreImage")!
-        let storeObject4 = StoreObject(unlocked: false, cost: 15, itemIdentifier: "Barracks", image: image4)!
+        let storeObject4 = BuildingObject(unlocked: false, cost: 15, itemIdentifier: "Barracks", image: image4)!
         
         let image5 = UIImage(named: "StockStoreImage")!
-        let storeObject5 = StoreObject(unlocked: false, cost: 10, itemIdentifier: "FoodStall", image: image5)!
+        let storeObject5 = BuildingObject(unlocked: false, cost: 10, itemIdentifier: "FoodStall", image: image5)!
         
-        storeObjects += [storeObject1, storeObject2, storeObject3, storeObject4, storeObject5]
+        storeBuildings += [storeObject1, storeObject2, storeObject3, storeObject4, storeObject5]
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
     }
-
-    // MARK: - Navigation
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        super.prepare(for: segue, sender: sender)
-    }*/
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int
@@ -78,7 +70,7 @@ class StoreCollectionViewController: UICollectionViewController
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return storeObjects.count
+        return storeBuildings.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind type: String, at indexPath: IndexPath) -> UICollectionReusableView
@@ -97,13 +89,13 @@ class StoreCollectionViewController: UICollectionViewController
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! StoreCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BuildingsCollectionViewCell
         
         var label: String = ""
         
-        if (!storeObjects[indexPath.row].unlocked)
+        if (!storeBuildings[indexPath.row].unlocked)
         {
-            label = String(storeObjects[indexPath.row].cost) + " coins"
+            label = String(storeBuildings[indexPath.row].cost) + " coins"
         }
         else
         {
@@ -111,35 +103,27 @@ class StoreCollectionViewController: UICollectionViewController
         }
         
         //sets the values of the current cell to their correct array counterpart
-        cell.objectImage.image = storeObjects[indexPath.row].objectImage
+        cell.objectImage.image = storeBuildings[indexPath.row].objectImage
         cell.costLabel.text = label
     
         return cell
     }
 
     // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    // Uncomment this method to specify if the specified item should be selected
+    //uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool
     {
-        let selectedObject = storeObjects[indexPath.row]
+        let selectedObject = storeBuildings[indexPath.row]
         
         if (!selectedObject.unlocked)
         {
             if (coinsManagerInstance.getCoins() >= selectedObject.cost)
             {
                 //changes unlocked bool and the total coins
-                storeObjects[indexPath.row].unlocked = true
-                coinsManagerInstance.removeCoins(value: storeObjects[indexPath.row].cost)
+                storeBuildings[indexPath.row].unlocked = true
+                coinsManagerInstance.removeCoins(value: storeBuildings[indexPath.row].cost)
                 
-                saveObjects()
+                saveBuildings()
                 
                 //display alert to confirm purchase
                 let purchaseAlert = UIAlertController(title: "Item Unlocked!", message:
@@ -166,7 +150,7 @@ class StoreCollectionViewController: UICollectionViewController
         }
         else
         {
-            self.selectedObject = selectedObject
+            self.selectedBuilding = selectedObject
             self.performSegue(withIdentifier: "unwindToPlaceObject", sender: self)
             
             return true
@@ -177,27 +161,12 @@ class StoreCollectionViewController: UICollectionViewController
     {
         self.dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     
     // MARK: Private Methods
-    private func saveObjects()
+    private func saveBuildings()
     {
         //bool that changes based on if the archive worked
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(storeObjects, toFile: StoreObject.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(storeBuildings, toFile: BuildingObject.ArchiveURL.path)
         
         //logs the appropriate response
         if isSuccessfulSave
@@ -210,9 +179,9 @@ class StoreCollectionViewController: UICollectionViewController
         }
     }
     
-    private func loadObjects() -> [StoreObject]?
+    private func loadBuildings() -> [BuildingObject]?
     {
         //return the array of workouts
-        return NSKeyedUnarchiver.unarchiveObject(withFile: StoreObject.ArchiveURL.path) as? [StoreObject]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: BuildingObject.ArchiveURL.path) as? [BuildingObject]
     }
 }

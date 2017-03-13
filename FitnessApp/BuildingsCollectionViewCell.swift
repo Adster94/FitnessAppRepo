@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreCollectionViewCell: UICollectionViewCell
+class BuildingsCollectionViewCell: UICollectionViewCell
 {
     @IBOutlet weak var objectImage: UIImageView!
     @IBOutlet weak var costLabel: UILabel!

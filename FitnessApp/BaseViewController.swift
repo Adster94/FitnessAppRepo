@@ -13,7 +13,7 @@ class BaseViewController: UIViewController
 {
     var placedStructures = [BaseGridObject]()
     var imageViews = [UIImageView]()
-    var selectedObject: StoreObject!
+    var selectedObject: BuildingObject!
     var resetPosition: CGPoint!
     
     @IBOutlet weak var testLabel: UILabel!
@@ -150,9 +150,9 @@ class BaseViewController: UIViewController
     @IBAction func unwindToPlaceObject(sender: UIStoryboardSegue)
     {
         //assign the bought object to the placement object
-        if let sourceViewController = sender.source as? StoreCollectionViewController
+        if let sourceViewController = sender.source as? BuildingsCollectionViewController
         {
-            self.selectedObject = sourceViewController.selectedObject
+            self.selectedObject = sourceViewController.selectedBuilding
             testLabel.text = self.selectedObject.itemIdentifier
             
             self.selectedObjectView.image = self.selectedObject.objectImage
@@ -173,6 +173,21 @@ class BaseViewController: UIViewController
             //pass the current object to the grid
             placeStructure()
         }
+    }
+    
+    @IBAction func reset(_ sender: Any)
+    {
+        loadEmptyPlots()
+        
+        for BaseGridObject in placedStructures
+        {
+            let tempObject = findView(name: BaseGridObject.positionName)
+            
+            tempObject.image = selectedObjectView.image
+            BaseGridObject.baseImage = selectedObjectView.image
+        }
+        
+        saveStructures()
     }
     
     // MARK: Private Methods

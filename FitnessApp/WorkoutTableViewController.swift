@@ -81,42 +81,6 @@ class WorkoutTableViewController: UITableViewController
         
         let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!
         
-        /*let image1 = UIImage(named: "Cardio")!
-        let exercise1 = "5 minute sprint"
-        let exercise2 = "30 minute long run"
-        let exercise3 = "5 minute sprint"
-        let exercise4 = "10 minute on/off run"
-        
-        var exerciseList1 = [String]()
-        exerciseList1.append(exercise1)
-        exerciseList1.append(exercise2)
-        exerciseList1.append(exercise3)
-        exerciseList1.append(exercise4)
-        
-        let workout1 = Workout(name: "Cardio Workout", image: image1, rating: 4, exercise: exerciseList1, identifier: "completeCardio")!
-        
-        let image2 = UIImage(named: "Bicep Curls")!
-        let exercise5 = "Bicep Curls x4"
-        let exercise6 = "Bar bicep curl x3"
-        let exercise7 = "Bicep Curl to failure"
-        
-        var exerciseList2 = [String]()
-        exerciseList2.append(exercise5)
-        exerciseList2.append(exercise6)
-        exerciseList2.append(exercise7)
-        
-        let workout2 = Workout(name: "Bicep Workout", image: image2, rating: 3, exercise: exerciseList2, identifier: "completeBicep")!
-        
-        let image3 = UIImage(named: "Endurance Cardio")!
-        let exercise8 = "60 minute long run"
-        let exercise9 = "60 minute cycle"
-        
-        var exerciseList3 = [String]()
-        exerciseList3.append(exercise8)
-        exerciseList3.append(exercise9)
-        
-        let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!*/
-        
         workouts += [workout1, workout2, workout3]
     }
     
@@ -129,7 +93,6 @@ class WorkoutTableViewController: UITableViewController
                 "Well done, you unlocked: " + (AchievementManager.instance.completedAchievement?.name)!, preferredStyle: UIAlertControllerStyle.alert)
             
             achievementAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
-            
             present(achievementAlert, animated: true, completion: nil)
             
             AchievementManager.instance.completedAchievement = nil

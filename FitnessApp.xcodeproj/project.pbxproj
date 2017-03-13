@@ -16,12 +16,12 @@
 		662D1CDD1E0412E6009C20AA /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662D1CDC1E0412E6009C20AA /* Exercise.swift */; };
 		6643FF3D1E49ECAA00A70DCD /* AchievementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643FF3C1E49ECAA00A70DCD /* AchievementTableViewController.swift */; };
 		6643FF3F1E49F73A00A70DCD /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6643FF3E1E49F73A00A70DCD /* AchievementTableViewCell.swift */; };
-		664780DD1E5B0B6200F09C85 /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664780DC1E5B0B6200F09C85 /* StoreCollectionViewCell.swift */; };
+		664780DD1E5B0B6200F09C85 /* BuildingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664780DC1E5B0B6200F09C85 /* BuildingsCollectionViewCell.swift */; };
 		6654E9331E548F6900CDBF98 /* CoinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6654E9321E548F6900CDBF98 /* CoinsManager.swift */; };
 		666769301E643D4300B881CE /* AchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667692F1E643D4300B881CE /* AchievementManager.swift */; };
-		668083911E54B0E1002FD349 /* StoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668083901E54B0E1002FD349 /* StoreObject.swift */; };
+		668083911E54B0E1002FD349 /* BuildingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668083901E54B0E1002FD349 /* BuildingObject.swift */; };
 		66B585C51E56065800BAF2D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C41E56065800BAF2D0 /* BaseViewController.swift */; };
-		66B585C71E56123400BAF2D0 /* StoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C61E56123400BAF2D0 /* StoreCollectionViewController.swift */; };
+		66B585C71E56123400BAF2D0 /* BuildingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C61E56123400BAF2D0 /* BuildingsCollectionViewController.swift */; };
 		66B585C91E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */; };
 		66B858081DC3772600C61429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B858071DC3772600C61429 /* AppDelegate.swift */; };
 		66B8580A1DC3772600C61429 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B858091DC3772600C61429 /* WorkoutViewController.swift */; };
@@ -61,12 +61,12 @@
 		662D1CDC1E0412E6009C20AA /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		6643FF3C1E49ECAA00A70DCD /* AchievementTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementTableViewController.swift; sourceTree = "<group>"; };
 		6643FF3E1E49F73A00A70DCD /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
-		664780DC1E5B0B6200F09C85 /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		664780DC1E5B0B6200F09C85 /* BuildingsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6654E9321E548F6900CDBF98 /* CoinsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsManager.swift; sourceTree = "<group>"; };
 		6667692F1E643D4300B881CE /* AchievementManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementManager.swift; sourceTree = "<group>"; };
-		668083901E54B0E1002FD349 /* StoreObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreObject.swift; sourceTree = "<group>"; };
+		668083901E54B0E1002FD349 /* BuildingObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingObject.swift; sourceTree = "<group>"; };
 		66B585C41E56065800BAF2D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		66B585C61E56123400BAF2D0 /* StoreCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewController.swift; sourceTree = "<group>"; };
+		66B585C61E56123400BAF2D0 /* BuildingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsCollectionViewController.swift; sourceTree = "<group>"; };
 		66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCreditsCollectionReusableView.swift; sourceTree = "<group>"; };
 		66B858041DC3772600C61429 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B858071DC3772600C61429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,10 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				66B585C41E56065800BAF2D0 /* BaseViewController.swift */,
-				66B585C61E56123400BAF2D0 /* StoreCollectionViewController.swift */,
+				66B585C61E56123400BAF2D0 /* BuildingsCollectionViewController.swift */,
 				66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */,
-				664780DC1E5B0B6200F09C85 /* StoreCollectionViewCell.swift */,
-				668083901E54B0E1002FD349 /* StoreObject.swift */,
+				664780DC1E5B0B6200F09C85 /* BuildingsCollectionViewCell.swift */,
+				668083901E54B0E1002FD349 /* BuildingObject.swift */,
 				66C3E98E1E68420900184BF2 /* BaseGridObject.swift */,
 			);
 			name = "Base Development";
@@ -329,14 +329,14 @@
 				66B585C91E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift in Sources */,
 				6654E9331E548F6900CDBF98 /* CoinsManager.swift in Sources */,
 				66D8BFD11E25133A001CDCE3 /* HomeViewController.swift in Sources */,
-				668083911E54B0E1002FD349 /* StoreObject.swift in Sources */,
+				668083911E54B0E1002FD349 /* BuildingObject.swift in Sources */,
 				660F1AF71E263F8B0039736D /* WorkoutSelectionTableViewController.swift in Sources */,
-				664780DD1E5B0B6200F09C85 /* StoreCollectionViewCell.swift in Sources */,
+				664780DD1E5B0B6200F09C85 /* BuildingsCollectionViewCell.swift in Sources */,
 				66C781941DD5E1C5002DCFDC /* WorkoutTableViewCell.swift in Sources */,
 				66C7818D1DD49BAD002DCFDC /* Workout.swift in Sources */,
 				66C3E98F1E68420900184BF2 /* BaseGridObject.swift in Sources */,
 				662D1CDD1E0412E6009C20AA /* Exercise.swift in Sources */,
-				66B585C71E56123400BAF2D0 /* StoreCollectionViewController.swift in Sources */,
+				66B585C71E56123400BAF2D0 /* BuildingsCollectionViewController.swift in Sources */,
 				66D961651E49E653005B57B7 /* Achievement.swift in Sources */,
 				666769301E643D4300B881CE /* AchievementManager.swift in Sources */,
 			);

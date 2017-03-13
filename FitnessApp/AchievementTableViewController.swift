@@ -57,6 +57,15 @@ class AchievementTableViewController: UITableViewController
         cell.nameLabel.text = achievement.name
         cell.descriptionLabel.text = achievement.achievementDescription
         cell.progressLabel.text = "Progress: " + String(achievement.progressMarks) + "/" + String(achievement.achieveMarks)
+        
+        if (achievement.achieved)
+        {
+            cell.backgroundColor = UIColor.green
+        }
+        else
+        {
+            cell.backgroundColor = UIColor.clear
+        }
 
         return cell
     }

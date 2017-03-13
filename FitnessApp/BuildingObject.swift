@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class StoreObject: NSObject, NSCoding
+class BuildingObject: NSObject, NSCoding
 {
     var unlocked: Bool = false
     var cost: Int = 0
