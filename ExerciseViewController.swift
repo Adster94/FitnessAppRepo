@@ -16,6 +16,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var descriptionField: UITextField!
     
     var exercise: Exercise?
     //var exercise: String?
@@ -53,7 +54,8 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     {
         //disable the Save button if the text field is empty
         let text = nameTextField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
+        let description = descriptionField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty && !description.isEmpty
     }
     
     // MARK: - Navigation
@@ -69,10 +71,11 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
             return
         }
         
-        let name = nameTextField.text ?? ""
-        
         //exercise name to be passed to ExerciseTableViewController after the unwind segue
-        exercise?.name = name
+        let name = nameTextField.text ?? ""
+        let tempDescription = descriptionField.text ?? ""
+        
+        exercise = Exercise(name: name, image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: tempDescription)
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem)

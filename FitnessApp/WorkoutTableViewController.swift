@@ -24,10 +24,10 @@ class WorkoutTableViewController: UITableViewController
         //use the edit button item provided by the table view controller
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadSampleWorkouts()
-        saveWorkouts()
+        //loadSampleWorkouts()
+        //saveWorkouts()
         
-        /*//load any saved workouts, otherwise load sample data
+        //load any saved workouts, otherwise load sample data
         if let savedWorkouts = loadWorkouts()
         {
             workouts += savedWorkouts
@@ -36,7 +36,7 @@ class WorkoutTableViewController: UITableViewController
         {
             //load sample workouts
             loadSampleWorkouts()
-        }*/
+        }
         
         //start off timer for the achievement check
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)

@@ -282,7 +282,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aq2-Tx-kmI">
-                                <rect key="frame" x="16" y="164" width="343" height="60.5"/>
+                                <rect key="frame" x="16" y="164" width="343" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyC-vw-Dd9">
                                         <rect key="frame" x="115" y="0.0" width="113.5" height="20.5"/>
@@ -292,6 +292,18 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new exercise" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9YL-6T-Ed4">
                                         <rect key="frame" x="20" y="30.5" width="303" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHI-n0-sXk">
+                                        <rect key="frame" x="93.5" y="70.5" width="156" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter exercise description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Wn-Le-x3M">
+                                        <rect key="frame" x="77.5" y="101" width="188.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -324,6 +336,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionField" destination="5Wn-Le-x3M" id="Uh3-mO-5iH"/>
                         <outlet property="exerciseNameLabel" destination="zyC-vw-Dd9" id="TWf-Qd-QkY"/>
                         <outlet property="nameTextField" destination="9YL-6T-Ed4" id="E6u-ls-cbq"/>
                         <outlet property="saveButton" destination="FAN-8R-dNH" id="stn-dW-bXo"/>
@@ -332,7 +345,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z34-B0-L3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7ty-xH-JrA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="8796" y="-549"/>
+            <point key="canvasLocation" x="8796" y="-549.17541229385313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="alv-YL-qG8">

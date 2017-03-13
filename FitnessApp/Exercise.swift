@@ -40,15 +40,22 @@ public class Exercise: NSObject, NSCoding
             return nil
         }
         
-        guard length > 0 else
+        /*guard length > 0 else
         {
             print ("Error: Exercise has no length.")
             return nil
-        }
+        }*/
         
         self.name = name
         self.image = image
-        self.length = length
+        if (length <= 0)
+        {
+            self.length = 30
+        }
+        else
+        {
+            self.length = length
+        }
         self.exerciseDescription = exerciseDescription
     }
     
