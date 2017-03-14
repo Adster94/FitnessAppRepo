@@ -22,10 +22,8 @@ class BuildingsCollectionViewController: UICollectionViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
+        //check if there is saved buildings, then load those, else load standard
         if let savedObjects = loadBuildings()
         {
             storeBuildings += savedObjects
@@ -36,6 +34,7 @@ class BuildingsCollectionViewController: UICollectionViewController
         }
     }
     
+    //basic startup and reset loading function
     func loadStoreObjects()
     {
         let image1 = UIImage(named: "Jail")!
@@ -64,22 +63,27 @@ class BuildingsCollectionViewController: UICollectionViewController
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int
     {
+        //return 1 to show table
         return 1
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
+        //returns the total number of buildable buildings
         return storeBuildings.count
     }
     
+    //function to loop through collection view sub-views
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind type: String, at indexPath: IndexPath) -> UICollectionReusableView
     {
+        //finds the header view storing the credit values
         switch type
         {
         case UICollectionElementKindSectionHeader:
+            //assign the header view to a variable
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: type, withReuseIdentifier: "CreditsBar", for: indexPath) as! StoreCreditsCollectionReusableView
             
+            //find and update the label
             headerView.creditsLabel.text = "Credits: " + String(coinsManagerInstance.getCoins())
             return headerView
         default:
@@ -91,20 +95,9 @@ class BuildingsCollectionViewController: UICollectionViewController
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BuildingsCollectionViewCell
         
-        var label: String = ""
-        
-        if (!storeBuildings[indexPath.row].unlocked)
-        {
-            label = String(storeBuildings[indexPath.row].cost) + " coins"
-        }
-        else
-        {
-            label = "Item Unlocked! Click to place object!"
-        }
-        
         //sets the values of the current cell to their correct array counterpart
         cell.objectImage.image = storeBuildings[indexPath.row].objectImage
-        cell.costLabel.text = label
+        cell.costLabel.text = String(storeBuildings[indexPath.row].cost) + " coins"
     
         return cell
     }
@@ -132,6 +125,8 @@ class BuildingsCollectionViewController: UICollectionViewController
                 purchaseAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
                 
                 present(purchaseAlert, animated: true, completion: nil)
+                
+                self.collectionView!.reloadData()
                 
                 return true
             }

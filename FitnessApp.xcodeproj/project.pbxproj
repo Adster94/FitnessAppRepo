@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		660608D51DD0C166001C9EB8 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660608D41DD0C166001C9EB8 /* RatingControl.swift */; };
-		660A6D4F1E5B2B9B00FC03E5 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660A6D4E1E5B2B9B00FC03E5 /* CollectionViewController.swift */; };
 		660F1AF71E263F8B0039736D /* WorkoutSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F1AF61E263F8B0039736D /* WorkoutSelectionTableViewController.swift */; };
 		660F1AF91E264DB30039736D /* ActiveWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660F1AF81E264DB30039736D /* ActiveWorkoutViewController.swift */; };
 		662D1CD91E040D2E009C20AA /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662D1CD81E040D2E009C20AA /* ExerciseTableViewCell.swift */; };
@@ -53,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		660608D41DD0C166001C9EB8 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
-		660A6D4E1E5B2B9B00FC03E5 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		660F1AF61E263F8B0039736D /* WorkoutSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSelectionTableViewController.swift; sourceTree = "<group>"; };
 		660F1AF81E264DB30039736D /* ActiveWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveWorkoutViewController.swift; sourceTree = "<group>"; };
 		662D1CD81E040D2E009C20AA /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				66B858071DC3772600C61429 /* AppDelegate.swift */,
 				66B8580E1DC3772600C61429 /* Assets.xcassets */,
 				66B858131DC3772600C61429 /* Info.plist */,
-				660A6D4E1E5B2B9B00FC03E5 /* CollectionViewController.swift */,
 			);
 			path = FitnessApp;
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				660A6D4F1E5B2B9B00FC03E5 /* CollectionViewController.swift in Sources */,
 				66B8580A1DC3772600C61429 /* WorkoutViewController.swift in Sources */,
 				662D1CDB1E041252009C20AA /* ExerciseTableViewController.swift in Sources */,
 				660F1AF91E264DB30039736D /* ActiveWorkoutViewController.swift in Sources */,

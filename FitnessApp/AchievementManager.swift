@@ -13,9 +13,11 @@ class AchievementManager: NSObject
 {
     static let instance = AchievementManager()
     
-    //arrays for storing achievements
+    //array for storing achievements
     var achievements = [Achievement]()
     var completedAchievement: Achievement?
+    
+    //identifier changed upon running the check for an achievement
     var markedIdentifier: String = ""
     var achievementReward: Int = 25
     
@@ -24,22 +26,19 @@ class AchievementManager: NSObject
     // MARK: - Achievement methods
     public func checkAchievements()
     {
-        print("checking achievements")
-        print(String(achievements.count) + " number of achievements")
-        
         //loop through all the achievements to progress next achievement
         for achievement in achievements
         {
-            print(self.markedIdentifier + " is the marked identifier (loop print)")
             if (achievement.progressMarks < achievement.achieveMarks)
             {
+                //check if the achievement identifier matches the marked and check if it is a standard workout
                 if (achievement.identifier == self.markedIdentifier && (achievement.identifier == "completeCardio" || achievement.identifier == "completeBicep" || achievement.identifier == "completeEndurance"))
                 {
                     //call check on standard achievement completion
                     standardCompletion(achievement: achievement)
                 }
                 
-                print(self.markedIdentifier + " is the marked identifier")
+                //check the achievement identifier against the marked identifier
                 if (achievement.identifier == self.markedIdentifier)
                 {
                     print(achievement.identifier + " has been progressed")

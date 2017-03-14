@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     //variables for the home screen
     var selectedWorkout: Workout?
-    var completedWorkout: Bool = false
+    //var completedWorkout: Bool = false
     var timer: Timer!
     var achievementAlert: UIAlertController!
     
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         //start off timer for the achievement check
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
         
-        //USED FOR TESTING
+        //shows user current coins available to them
         testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
 
@@ -99,17 +99,27 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     {
         if let sourceViewController = sender.source as? ActiveWorkoutViewController
         {
-            //reset the current workout selected, upon completion of workout
-            selectedWorkoutLabel.text = "Please select a workout..."
-            startButton.isEnabled = false
-            completedWorkout = sourceViewController.completed
-            AchievementManager.instance.markedIdentifier = "completeWorkout"
-            AchievementManager.instance.checkAchievements()
-            
-            AchievementManager.instance.markedIdentifier = (selectedWorkout?.achievementIdentifier)!
-            AchievementManager.instance.checkAchievements()
-            
-            selectedWorkout = nil
+            //only do completion checks if the workout was completed else just reset
+            if (sourceViewController.completed)
+            {
+                //reset the current workout selected, upon completion of workout
+                selectedWorkoutLabel.text = "Please select a workout..."
+                startButton.isEnabled = false
+                AchievementManager.instance.markedIdentifier = "completeWorkout"
+                AchievementManager.instance.checkAchievements()
+                
+                AchievementManager.instance.markedIdentifier = (selectedWorkout?.achievementIdentifier)!
+                AchievementManager.instance.checkAchievements()
+                
+                selectedWorkout = nil
+                sourceViewController.completed = false
+            }
+            else
+            {
+                selectedWorkout = nil
+                selectedWorkoutLabel.text = "Please select a workout..."
+                startButton.isEnabled = false
+            }
         }
     }
     

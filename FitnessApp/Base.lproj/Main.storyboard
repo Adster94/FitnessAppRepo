@@ -363,7 +363,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnI-LZ-BEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7801" y="-549"/>
+            <point key="canvasLocation" x="7780" y="-209"/>
         </scene>
         <!--Achievements-->
         <scene sceneID="x8K-t7-hXU">
@@ -933,7 +933,7 @@
         <scene sceneID="9m0-1c-7vA">
             <objects>
                 <collectionViewController id="w1X-eo-HvD" customClass="BuildingsCollectionViewController" customModule="FitnessApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="aTQ-ki-Mo1">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aTQ-ki-Mo1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class ActiveWorkoutViewController: UIViewController
 {
+    //UI outlets for updating data
     @IBOutlet weak var workoutName: UILabel!
     @IBOutlet weak var currentExercise: UILabel!
     @IBOutlet weak var countingLabel: UILabel!
@@ -19,6 +20,7 @@ class ActiveWorkoutViewController: UIViewController
     
     var activeWorkout: Workout?
     
+    //variables for exercise timing and workout routine
     var timer: Timer!
     var counter: Int = 0
     var exerciseCounter: Int = 0
@@ -69,6 +71,8 @@ class ActiveWorkoutViewController: UIViewController
             {
                 exerciseCounter += 1
             }
+            
+            //flip the exerciseflag bool
             exerciseFlag = !exerciseFlag
             
             if (exerciseCounter < exerciseNumber)
@@ -89,19 +93,15 @@ class ActiveWorkoutViewController: UIViewController
         {
             let activeExercise = activeWorkout?.exercises[exerciseCounter]
             counter = (activeExercise?.length)!
-                
-            OperationQueue.main.addOperation({
-                    self.currentExercise.text = activeExercise?.name
-                    self.currentDescription.text = activeExercise?.exerciseDescription
-                    self.exerciseImage.image = activeExercise?.image
-            })
+            
+            currentExercise.text = activeExercise?.name
+            currentDescription.text = activeExercise?.exerciseDescription
+            exerciseImage.image = activeExercise?.image
         }
         else
         {
             counter = 5
-            OperationQueue.main.addOperation({
-                    self.currentExercise.text = "Rest period"
-            })
+            currentExercise.text = "Rest period"
         }
     }
     
@@ -112,6 +112,7 @@ class ActiveWorkoutViewController: UIViewController
         counter = 0
         countingLabel.text = String(counter)
         currentExercise.text = "Workout complete"
+        exerciseImage.image = nil
         activeWorkout = nil
         completed = true
         
