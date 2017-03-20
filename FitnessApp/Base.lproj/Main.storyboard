@@ -133,6 +133,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="exerciseNameLabel" destination="cWL-N0-ajr" id="9ra-Vb-1KL"/>
+                                    <segue destination="6RU-HA-KCD" kind="showDetail" identifier="ShowDetail" id="Ui2-6T-Cdo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1055,5 +1056,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3Kz-Pw-wpW"/>
+        <segue reference="Ui2-6T-Cdo"/>
     </inferredMetricsTieBreakers>
 </document>

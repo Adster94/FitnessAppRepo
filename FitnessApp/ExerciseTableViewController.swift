@@ -115,6 +115,19 @@ class ExerciseTableViewController: UITableViewController
                 controller?.exercises = exercises
             }
         }
+        
+        if segue.identifier == "ShowDetail"
+        {
+            let exerciseDetailViewController = segue.destination as! ExerciseViewController
+            
+            //get the cell that generated this segue
+            if let selectedExerciseCell = sender as? ExerciseTableViewCell
+            {
+                let indexPath = tableView.indexPath(for: selectedExerciseCell)!
+                let selectedExercise = exercises[indexPath.row]
+                exerciseDetailViewController.exercise = selectedExercise
+            }
+        }
     }
     
     // MARK: Actions

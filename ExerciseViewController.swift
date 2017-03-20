@@ -26,6 +26,13 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
 
         nameTextField.delegate = self
         
+        //update the UI for the exercise scene, with the loaded exercise
+        if let exercise = exercise
+        {
+            nameTextField.text = exercise.name
+            descriptionField.text = exercise.exerciseDescription
+        }
+        
         checkValidExerciseName()
     }
 
