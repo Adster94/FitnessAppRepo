@@ -128,6 +128,10 @@ class ExerciseTableViewController: UITableViewController
                 exerciseDetailViewController.exercise = selectedExercise
             }
         }
+        else if segue.identifier == "AddItem"
+        {
+            print("Adding new exercise.")
+        }
     }
     
     // MARK: Actions

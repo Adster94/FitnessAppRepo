@@ -17,20 +17,36 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var lengthTextField: UITextField!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     var exercise: Exercise?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
         nameTextField.delegate = self
+        descriptionField.delegate = self
+        lengthTextField.delegate = self
+        
+        if (self.navigationController != nil)
+        {
+            print("navController present")
+        }
+        else
+        {
+            print("navController missing")
+        }
         
         //update the UI for the exercise scene, with the loaded exercise
         if let exercise = exercise
-        {
+        {            
+            navigationItem.title = exercise.name
             nameTextField.text = exercise.name
             descriptionField.text = exercise.exerciseDescription
+            lengthTextField.text = String(exercise.length)
+            photoImageView.image = exercise.image
         }
         
         checkValidExerciseName()
@@ -58,10 +74,23 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     
     func checkValidExerciseName()
     {
-        //disable the Save button if the text field is empty
+        //disable the Save button if the text fields is empty
         let text = nameTextField.text ?? ""
         let description = descriptionField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty && !description.isEmpty
+        
+        saveButton.isEnabled = !text.isEmpty && !description.isEmpty && checkInteger(lengthTextField: lengthTextField)
+    }
+    
+    func checkInteger(lengthTextField: UITextField) -> Bool
+    {
+        if Int(lengthTextField.text!) != nil
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
     
     // MARK: - Navigation
@@ -80,8 +109,9 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
         //exercise name to be passed to ExerciseTableViewController after the unwind segue
         let name = nameTextField.text ?? ""
         let tempDescription = descriptionField.text ?? ""
+        let tempLength = Int(lengthTextField.text ?? "")
         
-        exercise = Exercise(name: name, image: #imageLiteral(resourceName: "DefaultImage"), length: 30, exerciseDescription: tempDescription)
+        exercise = Exercise(name: name, image: #imageLiteral(resourceName: "DefaultImage"), length: tempLength!, exerciseDescription: tempDescription)
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem)

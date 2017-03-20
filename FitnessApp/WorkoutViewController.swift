@@ -29,6 +29,15 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     {
         super.viewDidLoad()
         
+        if (self.navigationController != nil)
+        {
+            print("navController present")
+        }
+        else
+        {
+            print("navController missing")
+        }
+        
         //handle the text field's input through delegate callbacks
         inputNameField.delegate = self
         imagePickerController.delegate = self
@@ -106,6 +115,19 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     // MARK: Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem)
     {
+        //check that the sender is the navigation controller
+        let isPresentingInAddWorkoutMode = presentingViewController is UINavigationController
+        
+        //if this is true then dismiss correctly
+        if (isPresentingInAddWorkoutMode)
+        {
+            dismiss(animated: true, completion: nil)
+        }
+        else
+        {
+            navigationController!.popViewController(animated: true)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
