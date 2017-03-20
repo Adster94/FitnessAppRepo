@@ -137,7 +137,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             
             AchievementManager.instance.completedAchievement = nil
             
-            //saveAchievements()
+            AchievementManager.instance.saveAchievements()
         }
     }
     

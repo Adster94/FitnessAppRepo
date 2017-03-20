@@ -154,7 +154,6 @@ class BaseViewController: UIViewController
         {
             self.selectedObject = sourceViewController.selectedBuilding
             testLabel.text = self.selectedObject.itemIdentifier
-            
             self.selectedObjectView.image = self.selectedObject.objectImage
         }
     }
@@ -163,9 +162,7 @@ class BaseViewController: UIViewController
     {
         //compute the translation of the selected object
         let translation = sender.translation(in: self.view)
-        
         sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
-        
         sender.setTranslation(CGPoint.zero, in: self.view)
         
         if (sender.state == UIGestureRecognizerState.ended)
@@ -177,6 +174,7 @@ class BaseViewController: UIViewController
     
     @IBAction func reset(_ sender: Any)
     {
+        //reset the base grid with empty plots
         loadEmptyPlots()
         
         for BaseGridObject in placedStructures

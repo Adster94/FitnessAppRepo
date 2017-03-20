@@ -11,7 +11,6 @@ import UIKit
 class Achievement: NSObject, NSCoding
 {
     // MARK: Properties
-    
     var name: String
     var achievementDescription: String
     var progressMarks: Int

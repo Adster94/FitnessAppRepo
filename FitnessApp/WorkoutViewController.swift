@@ -19,11 +19,10 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var exerciseButton: UIButton!
     @IBOutlet weak var exerciseNumberLabel: UILabel!
     
+    //variables for workout details
     var workout: Workout?
     var exercises = [Exercise]()
-    //var exercises = [String]()
     var achievementIdentifier: String = ""
-    
     let imagePickerController = UIImagePickerController()
     
     override func viewDidLoad()
@@ -107,18 +106,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     // MARK: Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem)
     {
-        //check that the sender is the navigation controller
-        let isPresentingInAddWorkoutMode = presentingViewController is UINavigationController
-        
-        //if this is true then dismiss correctly
-        if (isPresentingInAddWorkoutMode)
-        {
-            dismiss(animated: true, completion: nil)
-        }
-        else
-        {
-            navigationController!.popViewController(animated: true)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -170,11 +158,6 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
             exercises = exerciseList
             updateExerciseLabel()
         }
-    }
-    
-    @IBAction func cancelButton(_ sender: Any)
-    {
-        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Private Methods

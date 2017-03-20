@@ -97,7 +97,7 @@ class WorkoutTableViewController: UITableViewController
             
             AchievementManager.instance.completedAchievement = nil
             
-            //saveAchievements()
+            AchievementManager.instance.saveAchievements()
         }
     }
 
@@ -176,8 +176,6 @@ class WorkoutTableViewController: UITableViewController
             //save the workouts in the list
             saveWorkouts()
         }
-        
-        print("unwind workout list")
     }
  
     //override to support conditional editing of the table view

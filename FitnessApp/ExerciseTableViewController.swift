@@ -12,7 +12,6 @@ class ExerciseTableViewController: UITableViewController
 {
     // MARK: Properties
     var exercises = [Exercise]()
-    //var exercises = [String]()
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
@@ -22,6 +21,7 @@ class ExerciseTableViewController: UITableViewController
         
         navigationItem.rightBarButtonItems?.append(editButtonItem)
         
+        //if the exercises array is empty, load the basic exercises
         if exercises.isEmpty
         {
            loadSampleExercises()
@@ -30,6 +30,7 @@ class ExerciseTableViewController: UITableViewController
     
     func loadSampleExercises()
     {
+        //load the sample exercises for an empty workout
         let name1 = "Basic muscle exercise 1"
         let name2 = "Bicep curls exercise"
         let name3 = "Basic muscle exercise 2"
@@ -41,14 +42,6 @@ class ExerciseTableViewController: UITableViewController
         exercises.append(exercise1!)
         exercises.append(exercise2!)
         exercises.append(exercise3!)
-        
-        /*let exercise1 = "Basic muscle exercise 1"
-        let exercise2 = "Bicep curls exercise"
-        let exercise3 = "Basic msucle exercise 2"
-        
-        exercises.append(exercise1)
-        exercises.append(exercise2)
-        exercises.append(exercise3)*/
     }
 
     override func didReceiveMemoryWarning()

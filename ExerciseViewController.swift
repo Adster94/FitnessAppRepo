@@ -19,7 +19,6 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var descriptionField: UITextField!
     
     var exercise: Exercise?
-    //var exercise: String?
 
     override func viewDidLoad()
     {
@@ -80,17 +79,6 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem)
     {
-        //check that the sender is the navigation controller
-        let isPresentingInAddExerciseMode = presentingViewController is UINavigationController
-        
-        //if this is true then dismiss correctly
-        if (isPresentingInAddExerciseMode)
-        {
-            dismiss(animated: true, completion: nil)
-        }
-        else
-        {
-            navigationController!.popViewController(animated: true)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
 }

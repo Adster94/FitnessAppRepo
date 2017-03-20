@@ -157,13 +157,12 @@ class ActiveWorkoutViewController: UIViewController
         countingLabel.text = String(counter)
     }
     
-    //manually perform a segue
+    // MARK: - Manual Segue Activation
     @IBAction func exitButton(_ sender: Any)
     {
         self.performSegue(withIdentifier: "unwindToDeactiveWorkout", sender: self)
     }
     
-    //manually perform a segue
     @IBAction func cancelButton(_ sender: Any)
     {
         self.performSegue(withIdentifier: "unwindToDeactiveWorkout", sender: self)

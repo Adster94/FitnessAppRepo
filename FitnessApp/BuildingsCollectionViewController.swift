@@ -15,7 +15,6 @@ class BuildingsCollectionViewController: UICollectionViewController
     
     //array to store store objects
     var storeBuildings = [BuildingObject]()
-    
     let coinsManagerInstance = CoinsManager()
     var selectedBuilding: BuildingObject!
     
@@ -79,15 +78,16 @@ class BuildingsCollectionViewController: UICollectionViewController
         //finds the header view storing the credit values
         switch type
         {
-        case UICollectionElementKindSectionHeader:
-            //assign the header view to a variable
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: type, withReuseIdentifier: "CreditsBar", for: indexPath) as! StoreCreditsCollectionReusableView
+            case UICollectionElementKindSectionHeader:
+                //assign the header view to a variable
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: type, withReuseIdentifier: "CreditsBar", for: indexPath) as! StoreCreditsCollectionReusableView
             
-            //find and update the label
-            headerView.creditsLabel.text = "Credits: " + String(coinsManagerInstance.getCoins())
-            return headerView
-        default:
-            assert(false, "Unexpected element kind")
+                //find and update the label
+                headerView.creditsLabel.text = "Credits: " + String(coinsManagerInstance.getCoins())
+                
+                return headerView
+            default:
+                assert(false, "Unexpected element kind")
         }
     }
 
@@ -108,8 +108,10 @@ class BuildingsCollectionViewController: UICollectionViewController
     {
         let selectedObject = storeBuildings[indexPath.row]
         
+        //check if the object is not unlocked
         if (!selectedObject.unlocked)
         {
+            //check the current total coins against the object cost
             if (coinsManagerInstance.getCoins() >= selectedObject.cost)
             {
                 //changes unlocked bool and the total coins
@@ -145,6 +147,7 @@ class BuildingsCollectionViewController: UICollectionViewController
         }
         else
         {
+            //if it is unlocked, update selectedObject and perform segue
             self.selectedBuilding = selectedObject
             self.performSegue(withIdentifier: "unwindToPlaceObject", sender: self)
             

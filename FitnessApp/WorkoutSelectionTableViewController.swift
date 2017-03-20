@@ -68,16 +68,13 @@ class WorkoutSelectionTableViewController: UITableViewController
         exerciseList3.append(exercise9!)
         
         let workout3 = Workout(name: "Endurance Cardio", image: image3, rating: 3, exercise: exerciseList3, identifier: "completeEndurance")!
-    
         
         workouts += [workout1, workout2, workout3]
     }
 
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

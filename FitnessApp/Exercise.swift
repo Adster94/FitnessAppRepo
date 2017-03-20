@@ -40,12 +40,6 @@ public class Exercise: NSObject, NSCoding
             return nil
         }
         
-        /*guard length > 0 else
-        {
-            print ("Error: Exercise has no length.")
-            return nil
-        }*/
-        
         self.name = name
         self.image = image
         if (length <= 0)
@@ -71,9 +65,7 @@ public class Exercise: NSObject, NSCoding
         
         //because photo is an optional property of exercise, just use conditional cast
         let image = aDecoder.decodeObject(forKey: PropertyKey.image) as? UIImage
-        
         let length = aDecoder.decodeInteger(forKey: PropertyKey.length)
-        
         let description = aDecoder.decodeObject(forKey: PropertyKey.description) as! String
         
         //must call designated initializer

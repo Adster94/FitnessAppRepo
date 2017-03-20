@@ -16,7 +16,6 @@ class Workout: NSObject, NSCoding
     var image: UIImage?
     var rating: Int
     var exercises = [Exercise]()
-    //var exercises = [String]()
     var achievementIdentifier: String
     
     //MARK: Archiving Paths
@@ -69,12 +68,8 @@ class Workout: NSObject, NSCoding
         
         //because photo is an optional property of workout, just use conditional cast
         let image = aDecoder.decodeObject(forKey: PropertyKey.image) as? UIImage
-        
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
-        
-        //let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [Exercise]
         let exercises = aDecoder.decodeObject(forKey: PropertyKey.exercises) as! [Exercise]
-        
         let identifier = aDecoder.decodeObject(forKey: PropertyKey.identifier) as! String
         
         //must call designated initializer

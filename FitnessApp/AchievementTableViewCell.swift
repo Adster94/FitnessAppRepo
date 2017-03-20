@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AchievementTableViewCell: UITableViewCell {
-
+class AchievementTableViewCell: UITableViewCell
+{
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -23,5 +23,4 @@ class AchievementTableViewCell: UITableViewCell {
     {
         super.setSelected(selected, animated: animated)
     }
-
 }
