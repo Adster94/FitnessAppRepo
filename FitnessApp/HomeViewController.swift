@@ -43,18 +43,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         startButton.setTitleColor(UIColor.gray, for: .disabled)
         
         //RESET SAVED ACHIEVEMENTS
-        AchievementManager.instance.loadStartingAchievements()
-        AchievementManager.instance.saveAchievements()
+        //AchievementManager.instance.loadStartingAchievements()
+        //AchievementManager.instance.saveAchievements()
         
         //load any saved achievementss, otherwise load the starting versions
-        /*if let savedAchievements = achievementManager.loadAchievements()
+        if let savedAchievements = AchievementManager.instance.loadAchievements()
         {
-            achievementManager.achievements += savedAchievements
+            AchievementManager.instance.achievements += savedAchievements
         }
         else
         {
-            achievementManager.loadStartingAchievements()
-        }*/
+            AchievementManager.instance.loadStartingAchievements()
+        }
         
         //start off timer for the achievement check
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
@@ -153,7 +153,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         CoinsManager.instance.removeCoins(value: 10)
         testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
-    
+
     @IBAction func testAddCoins(_ sender: Any)
     {
         CoinsManager.instance.addCoins(value: 15)
