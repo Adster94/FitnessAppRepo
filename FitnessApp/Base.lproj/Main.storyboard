@@ -325,12 +325,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="1sw-ZV-JjB">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="1sw-ZV-JjB">
                                         <rect key="frame" x="71.5" y="211.5" width="200" height="200"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="4db-Sj-ncl"/>
+                                            <constraint firstAttribute="width" secondItem="1sw-ZV-JjB" secondAttribute="height" multiplier="1:1" id="YD5-hu-o0k"/>
                                             <constraint firstAttribute="height" constant="200" id="ow3-h8-936"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="MVL-WA-wrr" appends="YES" id="4Bd-sI-CwL"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -372,8 +377,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z34-B0-L3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="t0Z-Dx-MxJ"/>
                 <exit id="7ty-xH-JrA" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="MVL-WA-wrr">
+                    <connections>
+                        <action selector="selectImage:" destination="6RU-HA-KCD" id="Xzc-Yx-2Q2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="8796" y="-549.17541229385313"/>
         </scene>

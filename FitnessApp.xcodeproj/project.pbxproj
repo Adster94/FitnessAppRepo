@@ -19,13 +19,13 @@
 		6654E9331E548F6900CDBF98 /* CoinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6654E9321E548F6900CDBF98 /* CoinsManager.swift */; };
 		666769301E643D4300B881CE /* AchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667692F1E643D4300B881CE /* AchievementManager.swift */; };
 		668083911E54B0E1002FD349 /* BuildingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668083901E54B0E1002FD349 /* BuildingObject.swift */; };
+		66A812C41E923E3D00D4FF5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66A812C31E923E3D00D4FF5E /* Assets.xcassets */; };
 		66B585C51E56065800BAF2D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C41E56065800BAF2D0 /* BaseViewController.swift */; };
 		66B585C71E56123400BAF2D0 /* BuildingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C61E56123400BAF2D0 /* BuildingsCollectionViewController.swift */; };
 		66B585C91E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */; };
 		66B858081DC3772600C61429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B858071DC3772600C61429 /* AppDelegate.swift */; };
 		66B8580A1DC3772600C61429 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B858091DC3772600C61429 /* WorkoutViewController.swift */; };
 		66B8580D1DC3772600C61429 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B8580B1DC3772600C61429 /* Main.storyboard */; };
-		66B8580F1DC3772600C61429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B8580E1DC3772600C61429 /* Assets.xcassets */; };
 		66B858121DC3772600C61429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B858101DC3772600C61429 /* LaunchScreen.storyboard */; };
 		66B8581D1DC3772600C61429 /* FitnessAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B8581C1DC3772600C61429 /* FitnessAppTests.swift */; };
 		66C1A1691E0419CE004B63CE /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662D1CDC1E0412E6009C20AA /* Exercise.swift */; };
@@ -63,6 +63,7 @@
 		6654E9321E548F6900CDBF98 /* CoinsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsManager.swift; sourceTree = "<group>"; };
 		6667692F1E643D4300B881CE /* AchievementManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementManager.swift; sourceTree = "<group>"; };
 		668083901E54B0E1002FD349 /* BuildingObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingObject.swift; sourceTree = "<group>"; };
+		66A812C31E923E3D00D4FF5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66B585C41E56065800BAF2D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		66B585C61E56123400BAF2D0 /* BuildingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsCollectionViewController.swift; sourceTree = "<group>"; };
 		66B585C81E56172000BAF2D0 /* StoreCreditsCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCreditsCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		66B858071DC3772600C61429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B858091DC3772600C61429 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		66B8580C1DC3772600C61429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		66B8580E1DC3772600C61429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66B858111DC3772600C61429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66B858131DC3772600C61429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66B858181DC3772600C61429 /* FitnessAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitnessAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,13 +184,13 @@
 		66B858061DC3772600C61429 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				66A812C31E923E3D00D4FF5E /* Assets.xcassets */,
 				660063591E51ACF9004D9BCC /* Storyboards */,
 				66572B301E72BE67001DDD14 /* Workouts */,
 				66572B2F1E72BE42001DDD14 /* Reward System */,
 				66572B2E1E72BE0D001DDD14 /* Base Development */,
 				660063581E51ACD6004D9BCC /* Home and Workout System */,
 				66B858071DC3772600C61429 /* AppDelegate.swift */,
-				66B8580E1DC3772600C61429 /* Assets.xcassets */,
 				66B858131DC3772600C61429 /* Info.plist */,
 			);
 			path = FitnessApp;
@@ -291,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B858121DC3772600C61429 /* LaunchScreen.storyboard in Resources */,
-				66B8580F1DC3772600C61429 /* Assets.xcassets in Resources */,
+				66A812C41E923E3D00D4FF5E /* Assets.xcassets in Resources */,
 				66B8580D1DC3772600C61429 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,6 +21,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var photoImageView: UIImageView!
     
     var exercise: Exercise?
+    let imagePickerController = UIImagePickerController()
 
     override func viewDidLoad()
     {
@@ -29,15 +30,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
         nameTextField.delegate = self
         descriptionField.delegate = self
         lengthTextField.delegate = self
-        
-        if (self.navigationController != nil)
-        {
-            print("navController present")
-        }
-        else
-        {
-            print("navController missing")
-        }
+        imagePickerController.delegate = self
         
         //update the UI for the exercise scene, with the loaded exercise
         if let exercise = exercise
@@ -83,6 +76,7 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
     
     func checkInteger(lengthTextField: UITextField) -> Bool
     {
+        //check whether the input field is only numbers
         if Int(lengthTextField.text!) != nil
         {
             return true
@@ -91,6 +85,25 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
         {
             return false
         }
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        //dismiss the picker if the user canceled
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        //set photoImageView to display the selected image and fit aspect
+        photoImageView.contentMode = .scaleAspectFit
+        photoImageView.image = selectedImage
+        
+        //dismiss image picker
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -110,12 +123,39 @@ class ExerciseViewController: UIViewController, UITextFieldDelegate,
         let name = nameTextField.text ?? ""
         let tempDescription = descriptionField.text ?? ""
         let tempLength = Int(lengthTextField.text ?? "")
+        let tempImage = photoImageView.image
         
-        exercise = Exercise(name: name, image: #imageLiteral(resourceName: "DefaultImage"), length: tempLength!, exerciseDescription: tempDescription)
+        exercise = Exercise(name: name, image: tempImage!, length: tempLength!, exerciseDescription: tempDescription)
+    }
+    
+    // MARK: - Actions
+    @IBAction func selectImage(_ sender: UITapGestureRecognizer)
+    {
+        //hide the keyboard
+        nameTextField.resignFirstResponder()
+        
+        //make sure images come from library, not camera
+        imagePickerController.sourceType = .photoLibrary
+        
+        //view controller is notified when an image is selected
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem)
     {
+        //check that the sender is the navigation controller
+        let isPresentingInAddWorkoutMode = presentingViewController is UINavigationController
+        
+        //if this is true then dismiss correctly
+        if (isPresentingInAddWorkoutMode)
+        {
+            dismiss(animated: true, completion: nil)
+        }
+        else
+        {
+            navigationController!.popViewController(animated: true)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
 }

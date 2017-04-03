@@ -29,15 +29,6 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate,
     {
         super.viewDidLoad()
         
-        if (self.navigationController != nil)
-        {
-            print("navController present")
-        }
-        else
-        {
-            print("navController missing")
-        }
-        
         //handle the text field's input through delegate callbacks
         inputNameField.delegate = self
         imagePickerController.delegate = self
