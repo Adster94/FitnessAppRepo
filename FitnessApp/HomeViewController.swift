@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     var selectedWorkout: Workout?
     //var completedWorkout: Bool = false
     var timer: Timer!
+    var coinUpdate: Timer!
     var achievementAlert: UIAlertController!
     
     @IBOutlet weak var testCoinsLabel: UILabel!
@@ -59,8 +60,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         //start off timer for the achievement check
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
         
-        //shows user current coins available to them
-        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
+        //shows user current coins available to them, update regularly to show changes
+        coinUpdate = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCoins), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning()
@@ -141,6 +142,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         }
     }
     
+    public func updateCoins()
+    {
+        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
+    }
+    
     // MARK: - Private methods
     private func updateWorkout()
     {
@@ -148,15 +154,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     }
     
     //MARK: TEST FUNCTIONS
+    //these test functions are linked to test buttons on homepage, used to update and remove coins without needing to complete actions
+    //completing actions still gives coins, this is used for testing purposes only
     @IBAction func testRemoveCoins(_ sender: Any)
     {
         CoinsManager.instance.removeCoins(value: 10)
-        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
 
     @IBAction func testAddCoins(_ sender: Any)
     {
         CoinsManager.instance.addCoins(value: 15)
-        testCoinsLabel.text = "Current Coins: " + String(CoinsManager.instance.getCoins())
     }
 }
