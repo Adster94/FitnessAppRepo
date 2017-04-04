@@ -18,7 +18,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     //variables for the home screen
     var selectedWorkout: Workout?
-    //var completedWorkout: Bool = false
     var timer: Timer!
     var coinUpdate: Timer!
     var achievementAlert: UIAlertController!
@@ -61,7 +60,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(checkAchieved), userInfo: nil, repeats: true)
         
         //shows user current coins available to them, update regularly to show changes
-        coinUpdate = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCoins), userInfo: nil, repeats: true)
+        coinUpdate = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCoins), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning()

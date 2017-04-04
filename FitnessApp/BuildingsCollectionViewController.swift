@@ -22,6 +22,10 @@ class BuildingsCollectionViewController: UICollectionViewController
     {
         super.viewDidLoad()
         
+        //used for resetting if error occurs
+        //loadStoreObjects()
+        //saveBuildings()
+        
         //check if there is saved buildings, then load those, else load standard
         if let savedObjects = loadBuildings()
         {
